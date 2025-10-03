@@ -20,6 +20,7 @@ This can be a tool that helps football fans decide the most interesting matches 
     - Shots Inside Box
     - Corners
     - Touches in opposition box
+    - Stadium attendance vs. Stadium Capacity (*Factor in the fan demand since they play a hand in influencing player behavior.*)
 2. **Features (team-wise, pre-match)**:
     - xG/90
     - shots on target/90
