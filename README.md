@@ -8,7 +8,12 @@ This can be a tool that helps football fans decide the most interesting matches 
 1. Develop a testable metric that defines liveliness during a match between two teams.
 2. Train a model to predict this testable metric based on historical match data between teams from the English Premier League.
 
-## Data to Collect
+## Data
+ 
+- Purpose: Season dataset for the 2024–25 Premier League used by the project, containing full match data scraped from FotMob. See the detailed dataset docs: [data/24-25_PL_Data/README.md](data/24-25_PL_Data/README.md).
+- Structure: Located at `data/24-25_PL_Data/` with an `index.json` manifest and 38 round folders (`round_0`–`round_37`) each holding 10 per-match JSON files.
+- Contents: Each match JSON includes metadata, score/timing, xG shot events, lineups with player ratings/subs, and team stats by period.
+
 ### Match Data:
 1. **Label (match-wise, post-match)**:
     - Goals
