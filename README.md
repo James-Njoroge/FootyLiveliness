@@ -10,8 +10,8 @@ This can be a tool that helps football fans decide the most interesting matches 
 
 ## Data
  
-- Purpose: Season dataset for the 2024–25 Premier League used by the project, containing full match data scraped from FotMob. See the detailed dataset docs: [data/24-25_PL_Data/README.md](data/24-25_PL_Data/README.md).
-- Structure: Located at `data/24-25_PL_Data/` with an `index.json` manifest and 38 round folders (`round_0`–`round_37`) each holding 10 per-match JSON files.
+- Purpose: Season dataset for the 2024–25 Premier League used by the project, containing full match data scraped from FotMob. See the detailed dataset docs: [data/README_data.md](data/README_data.md).
+- Structure: Located at `data/24-25_PL_Data_raw/` with an `index.json` manifest and 38 round folders (`round_0`–`round_37`) each holding 10 per-match JSON files.
 - Contents: Each match JSON includes metadata, score/timing, xG shot events, lineups with player ratings/subs, and team stats by period.
 
 ### Match Data:
