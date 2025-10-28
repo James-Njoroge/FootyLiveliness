@@ -1,0 +1,217 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\title{Exploratory Analysis of Pre-Match Features vs SLS-F+}
+\author{James Njoroge, Muhammad Raka Zuhdi, Fola Oladipo}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+
+We have made features that should be safe from data leakage, whereby we are not
+using the data that contributes to the target (that we are trying to predict) as 
+a feature for our model to learn from. We achieve this by framing this problem 
+as a time-series problem whereby we only access past information as a feature 
+to make the current prediction. 
+(\href{https://www.ibm.com/think/topics/data-leakage-machine-learning}
+{Data Leakage in ML}.)
+
+We want to understand how our forward-looking, leakage-safe, pre-match features
+(e.g. attacking form, defensive concessions, rest, crowd context, composite
+AttackVsDefense / TempoSum / SoTSum) relate to the post-match liveliness score
+\texttt{SLS\_Fplus}.
+We use \texttt{match\_features\_wide.csv} as the modeling table
+(one row per match),
+and produce global + per-round visuals.
+
+<<setup, include=FALSE, cache=FALSE>>=
+# Load libraries
+library(tidyverse)
+library(GGally)      # for ggpairs scatterplot matrix
+library(corrplot)    # for correlation heatmap
+library(scales)      # nicer axis formatting
+theme_set(theme_bw())
+@
+
+\section{Load Data}
+
+We load the feature table produced by the Python pipeline. This table has one
+row per match (Home vs Away), all pre-match features, and the
+target \texttt{SLS\_Fplus}.
+
+<<load-data, message=FALSE, warning=FALSE>>=
+wide_df <- read_csv("feature_tables/match_features_wide.csv",
+                    show_col_types = FALSE)
+
+# Basic sanity check
+head(wide_df)
+summary(select(wide_df, SLS_Fplus,
+               Home_AttackVsDefense, Away_AttackVsDefense,
+               TempoSum, SoTSum,
+               Home_occ_prior,
+               DaysRestDiff,
+               LeagueAvg_xG_perMatch_sofar,
+               LeagueAvg_Corners_perMatch_sofar))
+@
+
+\section{Pairwise Relationships}
+
+Below we inspect pairwise scatterplots between a subset of the most
+interpretably important numeric predictors and the target \texttt{SLS\_Fplus}.
+This helps us see linear vs nonlinear trends, clustering, and outliers.
+
+We pick:
+\begin{itemize}
+  \item \texttt{Home\_AttackVsDefense}, \texttt{Away\_AttackVsDefense} \\
+        (our core ``can this get wild?'' signal: attack strength of one side
+        plus defensive weakness of the other);
+  \item \texttt{TempoSum}, \texttt{SoTSum} \\
+        (expected tempo and shot volume);
+  \item \texttt{Home\_occ\_prior} \\
+        (crowd intensity proxy);
+  \item \texttt{SLS\_Fplus} \\
+        (the score we want to predict).
+\end{itemize}
+
+<<pairwise-global, fig.width=8, fig.height=8, warning=FALSE, message=FALSE>>=
+pair_df <- wide_df |>
+  select(SLS_Fplus,
+         Home_AttackVsDefense, Away_AttackVsDefense,
+         TempoSum, SoTSum,
+         Home_occ_prior)
+
+GGally::ggpairs(
+  pair_df,
+  columns = 1:ncol(pair_df),
+  aes(color = SLS_Fplus > median(SLS_Fplus, na.rm=TRUE)),
+  progress = FALSE
+)
+@
+
+The diagonal panels show distributions for each variable. Off-diagonals
+are scatterplots. Color here just flags whether the match's liveliness
+(\texttt{SLS\_Fplus}) is above the median, so we can visually see if "high
+SLS" games cluster anywhere. 
+
+As you can tell, we currently cannot tell much apart from that there are clusters of data and they seem to correlate somehow. Surely, in higher dimensions, these clusters play off of each other and create better separations.
+
+\section{Correlation Heatmap}
+
+Next we quantify linear correlation among these predictors and the target.
+This helps flag multicollinearity (two features that are basically the same
+signal) or no-signal features.
+
+<<cor-heatmap, fig.width=7, fig.height=6, warning=FALSE, message=FALSE>>=
+num_mat <- pair_df |> 
+  mutate(across(everything(), as.numeric)) |>
+  cor(use = "complete.obs")
+
+corrplot(num_mat,
+         method="color", type="upper", order="hclust",
+         addCoef.col="black", number.cex=0.6,
+         tl.col="black", tl.srt=45)
+@
+
+We are looking for:
+\begin{itemize}
+  \item Some correlation between \texttt{SLS\_Fplus} and
+        \texttt{TempoSum} / \texttt{SoTSum} / AttackVsDefense. That supports
+        the idea that high-tempo, high-shot-volume matchups have effect on
+        liveliness.
+  \item Any predictors that are nearly identical to each other (very high
+        correlation), which may cause instability in downstream models for us.
+\end{itemize}
+
+We find that some features are highly correlated to each other, but each of them
+have a weak correlation to the liveliness predictor.
+
+\section{Scatter vs Target (Annotated)}
+
+We now directly compare composite predictors to the target.
+The first plot shows whether matches with two aggressive teams
+(high combined shot tempo) tend to get higher \texttt{SLS\_Fplus}.
+The red line is a simple linear fit.
+
+<<scatter-tempo, fig.width=6, fig.height=4, warning=FALSE, message=FALSE>>=
+wide_df |>
+  mutate(TempoSum_label = round(TempoSum,1)) |>
+  ggplot(aes(x = TempoSum,
+             y = SLS_Fplus)) +
+  geom_point(alpha=0.6) +
+  geom_smooth(method="lm", se=FALSE, linewidth=0.8, color="red") +
+  labs(title="TempoSum vs SLS_Fplus",
+       x="TempoSum (Home Corners/90 + Away Corners/90 pre-match)",
+       y="SLS_Fplus (0–100)") +
+  theme_bw()
+@
+
+Interpretation: This line trends upward, so "expected tempo" based on both 
+teams' historical corners may mean that a match will be more lively.
+
+We do the same for the combined SoT form.
+
+<<scatter-sot, fig.width=6, fig.height=4, warning=FALSE, message=FALSE>>=
+wide_df |>
+  ggplot(aes(x = SoTSum,
+             y = SLS_Fplus)) +
+  geom_point(alpha=0.6) +
+  geom_smooth(method="lm", se=FALSE, linewidth=0.8, color="red") +
+  labs(title="SoTSum vs SLS_Fplus",
+       x="SoTSum (Home SoT/90 + Away SoT/90 pre-match)",
+       y="SLS_Fplus (0–100)") +
+  theme_bw()
+@
+
+This feature also tracks \texttt{SLS\_Fplus} well so this is a good sanity check for us 
+that our targets and features positively relate.
+
+\section{Round-by-Round Facets}
+
+Finally, we check stability of these relationships over time. Early rounds
+use more league-average fallback because teams haven't built up 5-game
+histories yet. Later rounds use true rolling form. If the trend strengthens
+over rounds, that says the model’s features become more predictive once
+the season has settled.
+
+We facet TempoSum vs SLS\_Fplus by round.
+
+<<facet-round, fig.width=8, fig.height=6, warning=FALSE, message=FALSE>>=
+wide_df |>
+  ggplot(aes(x = TempoSum,
+             y = SLS_Fplus)) +
+  geom_point(alpha=0.5, size=1.5) +
+  geom_smooth(method="lm", se=FALSE, linewidth=0.6, color="red") +
+  facet_wrap(~ Round, scales="free") +
+  labs(title="TempoSum vs SLS_Fplus by Round",
+       x="TempoSum (expected attacking pace)",
+       y="SLS_Fplus") +
+  theme_bw() +
+  theme(strip.text = element_text(size=8))
+@
+
+The early-round facets look noisy or flat, that's expected: early rounds
+lean on fallback league priors.
+By mid-to-late rounds, each team’s rolling metrics are "themselves," so we
+should start to see cleaner positive/negative slopes.
+
+\section{Takeaways}
+
+\begin{itemize}
+  \item The pre-match features (AttackVsDefense, TempoSum, SoTSum, rest,
+        occupancy) are behaving in a way that’s directionally consistent with
+        our story about which matches “should” be lively.
+  \item We are not leaking in-match data into pre-match features. Each row’s
+        features used only historical matches and league context \emph{before}
+        kickoff of that match.
+  \item The target \texttt{SLS\_Fplus} is from full-time stats, so it’s valid
+        to train a model that maps the pre-match view to that post-match label.
+  \item Faceting by round helps confirm that predictive signal improves as
+        the rolling windows become real (not priors).
+\end{itemize}
+
+\end{document}
+
