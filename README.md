@@ -1,6 +1,11 @@
 # Predicting Liveliness for 2024/25 Premier League Matches using FotMob Statistics
 
-[![Watch the video](https://img.youtube.com/vi/vWeHg9z0MsM/0.jpg)](https://www.youtube.com/watch?v=vWeHg9z0MsM)
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=vWeHg9z0MsM" target="_blank">
+    <img src="https://img.youtube.com/vi/vWeHg9z0MsM/0.jpg" alt="Watch the video" width="560" />
+  </a>
+</p>
 
 
 **Description:** This project aims to build a model to predict a match’s Liveliness Score—a viewer-centric composite of danger and pace—before kickoff, using historical FotMob team and league statistics from the 2024/25 Premier League.
