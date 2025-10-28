@@ -1,6 +1,3 @@
-# Ignore Footyliveliness video
-FootyLiveliness-Report.mp4
-
 # Ignore some Rnw files
 *.synctex.gz
 *.tex
