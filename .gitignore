@@ -1,6 +1,15 @@
+# Ignore the midterm video report
+FootyLiveliness-Report.mp4
+
+# Ignore some Rnw files
+*.synctex.gz
+*.tex
+
 # Data folder may be too big to push
 data/24-25_PL_Data_raw/
 data/24-25_PL_Data/
+data/feature_tables
+data/tables
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
