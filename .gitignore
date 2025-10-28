@@ -1,3 +1,6 @@
+# Ignore the midterm video report
+FootyLiveliness-Report.mp4
+
 # Ignore some Rnw files
 *.synctex.gz
 *.tex
