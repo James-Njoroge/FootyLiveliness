@@ -1,0 +1,41 @@
+round,homeTeamName,awayTeamName,actual,xgb_prediction
+34,Chelsea,Liverpool,5.23,3.596881
+34,Brentford,Manchester United,5.92,3.4810903
+34,Aston Villa,Fulham,2.66,3.8554552
+34,Arsenal,AFC Bournemouth,3.3599999999999994,3.902253
+34,West Ham United,Tottenham Hotspur,2.38,3.0638888
+34,Brighton & Hove Albion,Newcastle United,3.25,4.316651
+34,Leicester City,Southampton,2.46,3.2159066
+34,Manchester City,Wolverhampton Wanderers,1.5099999999999998,4.3151116
+34,Crystal Palace,Nottingham Forest,3.78,3.7865858
+34,Everton,Ipswich Town,1.95,3.6159568
+35,Nottingham Forest,Leicester City,3.4000000000000004,3.1693425
+35,Southampton,Manchester City,2.02,3.1593127
+35,Ipswich Town,Brentford,3.27,3.417395
+35,Liverpool,Arsenal,7.360000000000001,2.6645622
+35,AFC Bournemouth,Aston Villa,2.58,3.3305504
+35,Fulham,Everton,2.7,3.0381532
+35,Manchester United,West Ham United,5.75,3.5431123
+35,Newcastle United,Chelsea,2.95,3.2453463
+35,Tottenham Hotspur,Crystal Palace,4.82,4.1356053
+35,Wolverhampton Wanderers,Brighton & Hove Albion,3.39,3.6160307
+36,Arsenal,Newcastle United,3.14,2.6868455
+36,Aston Villa,Tottenham Hotspur,2.41,3.5362015
+36,Brentford,Fulham,4.8500000000000005,3.5028284
+36,Brighton & Hove Albion,Liverpool,6.63,3.8987896
+36,Everton,Southampton,5.15,2.3204498
+36,Leicester City,Ipswich Town,3.01,3.4762444
+36,Manchester City,AFC Bournemouth,3.78,4.3001003
+36,West Ham United,Nottingham Forest,4.22,3.2216015
+36,Crystal Palace,Wolverhampton Wanderers,4.48,4.553951
+36,Chelsea,Manchester United,1.4,3.9364188
+37,Liverpool,Crystal Palace,5.68,4.002862
+37,Ipswich Town,West Ham United,2.56,3.5270808
+37,Newcastle United,Everton,3.59,3.4751372
+37,Manchester United,Aston Villa,3.75,3.5580196
+37,AFC Bournemouth,Leicester City,2.16,3.3063288
+37,Fulham,Manchester City,5.550000000000001,3.1846437
+37,Tottenham Hotspur,Brighton & Hove Albion,6.299999999999999,4.332984
+37,Wolverhampton Wanderers,Brentford,3.51,3.542208
+37,Southampton,Arsenal,3.63,3.1350296
+37,Nottingham Forest,Chelsea,3.38,2.9362435

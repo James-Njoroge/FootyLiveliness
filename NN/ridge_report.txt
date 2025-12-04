@@ -1,0 +1,52 @@
+================================================================================
+RIDGE REGRESSION REPORT - MATCH LIVELINESS PREDICTION
+================================================================================
+
+DATASET:
+  Training samples:   240
+  Validation samples: 50
+  Test samples:       40
+  Features:           38
+
+MODEL:
+  Algorithm: Ridge Regression (L2 regularization)
+  Best alpha: 100.0
+  Alpha tuning: Cross-validation (5 folds)
+  Alphas tested: [0.001, 0.01, 0.1, 0.5, 1.0, 5.0, 10.0, 50.0, 100.0]
+  Training time: 0.001s
+
+RESULTS:
+  Train - R²: 0.1490, MAE: 1.0535, RMSE: 1.3174, rho: 0.3429
+  Val   - R²: -0.1015, MAE: 1.0373, RMSE: 1.3683, rho: -0.0696
+  Test  - R²: 0.0881, MAE: 1.0449, RMSE: 1.3768, rho: 0.2872
+
+OVERFITTING CHECK:
+  Train - Test R² difference: 0.0609
+  Status: ✓ No significant overfitting
+
+COMPARISON WITH BASELINE:
+  Metric               XGBoost        Ridge     Improvement
+  -------------------------------------------------------
+  R²                    0.0420       0.0881         +0.0461
+  Spearman rho          0.3020       0.2872         -0.0148
+  MAE                   1.1500       1.0449         +0.1051
+
+TOP 15 MOST IMPORTANT FEATURES:
+--------------------------------------------------------------------------------
+Rank   Feature                                 Coefficient
+--------------------------------------------------------------------------------
+1      both_top6                                 -0.168447
+2      away_Corn_att_90                           0.132473
+3      away_BigCh_agst_90                         0.122988
+4      away_last3_goals                          -0.117033
+5      gd_diff                                    0.116907
+6      away_position                             -0.109730
+7      home_xGA_def_90                            0.096024
+8      home_BigCh_att_90                          0.094427
+9      home_Corn_att_90                           0.092470
+10     position_diff                              0.089890
+11     away_SoT_agst_90                          -0.077966
+12     away_ToB_att_90                           -0.068113
+13     away_SoT_att_90                            0.064891
+14     SoTSum                                     0.061566
+15     close_positions                           -0.061074

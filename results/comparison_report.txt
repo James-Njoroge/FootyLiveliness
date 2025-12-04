@@ -1,0 +1,31 @@
+FOOTYLIVELINESS - COMPLETE METRIC COMPARISON REPORT
+================================================================================
+
+DATASET:
+  Train: Rounds 5-28 (240 matches)
+  Val:   Rounds 29-33 (50 matches)
+  Test:  Rounds 34-37 (40 matches)
+
+METRICS TESTED:
+  1. SLS-F+ Rolling: z-scores from rounds 0 to K-1 (no leakage)
+     Formula: xG(50%) + SoT(20%) + BigCh(10%) + Corners(10%) + ToB(10%)
+  2. SLS-F+ Fixed: z-scores from entire season (has leakage)
+     Formula: Same as rolling but fixed normalization
+  3. Liveliness xG: xG_total + min(xG_home, xG_away) (simple, interpretable)
+
+RESULTS:
+                   Metric      Model        R²       MAE      RMSE  Spearman ρ
+SLS-F+ (Rolling Z-Scores) Linear Reg -0.127629 12.586760 14.965815    0.065478
+SLS-F+ (Rolling Z-Scores)    XGBoost -0.050851 11.647520 14.447343    0.078424
+  SLS-F+ (Fixed Z-Scores) Linear Reg -0.135090 13.229862 15.594516    0.057974
+  SLS-F+ (Fixed Z-Scores)    XGBoost  0.085133 11.614444 14.000249    0.292120
+      xG-Based Liveliness Linear Reg -0.078272  1.141294  1.497201    0.109855
+      xG-Based Liveliness    XGBoost  0.007824  1.150993  1.436185    0.205544
+
+BEST PERFORMERS:
+  Best R²: SLS-F+ (Fixed Z-Scores) with XGBoost (R²=0.085)
+  Best Ranking: SLS-F+ (Fixed Z-Scores) with XGBoost (ρ=0.292)
+
+INTERPRETATION:
+  ⚠ Model shows weak but positive predictive power (R² > 0)
+  ⚠ Model has weak ranking ability (ρ > 0.15)

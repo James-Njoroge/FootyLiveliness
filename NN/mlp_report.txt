@@ -1,0 +1,11 @@
+================================================================================
+MLP TRAINING REPORT - MATCH LIVELINESS PREDICTION
+================================================================================
+
+DATASET:
+  Training samples:   240
+  Validation samples: 50
+  Test samples:       40
+  Features:           38
+
+ARCHITECTURE:

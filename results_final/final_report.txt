@@ -1,0 +1,36 @@
+FOOTYLIVELINESS - FINAL BASELINE MODEL
+================================================================================
+
+FEATURES:
+  Total: 87 features
+
+  Categories:
+  - Rolling 5-match form (original): 22 features
+  - League context (position, points, GD): 11 features
+  - Form trajectory (last 3 vs prev 5): 6 features
+  - H2H history: 6 features
+  - Variance/consistency: 8 features
+  - Weighted form (exponential decay): 6 features
+  - Opposition quality: 6 features
+  - Streaks & momentum: 8 features
+  - Pace/style indicators: 6 features
+  - Extreme result tendencies: 6 features
+
+RESULTS:
+                   Metric      Model         R²       MAE      RMSE  Spearman ρ
+SLS-F+ (Rolling Z-Scores) Linear Reg -13.594211 34.300347 53.840324   -0.063227
+SLS-F+ (Rolling Z-Scores)    XGBoost  -0.187992 12.811512 15.361162   -0.000188
+  SLS-F+ (Fixed Z-Scores) Linear Reg -14.201667 36.237886 57.069280   -0.067355
+  SLS-F+ (Fixed Z-Scores)    XGBoost  -0.215369 13.467597 16.136557   -0.016323
+      xG-Based Liveliness Linear Reg -14.342492  3.490563  5.647598    0.008349
+      xG-Based Liveliness    XGBoost  -0.135599  1.149778  1.536485    0.107041
+
+BEST PERFORMERS:
+  Best R²: xG-Based Liveliness with XGBoost (R²=-0.136)
+  Best Ranking: xG-Based Liveliness with XGBoost (ρ=0.107)
+
+NEXT STEPS:
+  1. Neural network with same features
+  2. Ensemble methods
+  3. Feature selection (remove redundant features)
+  4. Classification approach (Top 30% liveliness prediction)
