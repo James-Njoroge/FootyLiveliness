@@ -1,0 +1,33 @@
+FOOTYLIVELINESS - ENHANCED MODEL WITH CONTEXTUAL FEATURES
+================================================================================
+
+ENHANCEMENTS:
+  Added 15+ contextual features:
+  - League position & points
+  - Form trajectory (last 3 vs previous 5)
+  - Home/away strength ratios
+  - High-stakes indicators
+
+RESULTS:
+                   Metric      Model        R²       MAE      RMSE  Spearman ρ
+SLS-F+ (Rolling Z-Scores) Linear Reg -0.153999 12.185406 15.139800    0.252158
+SLS-F+ (Rolling Z-Scores)    XGBoost -0.117039 12.517792 14.895377    0.055159
+  SLS-F+ (Fixed Z-Scores) Linear Reg -0.143062 12.639937 15.649184    0.225328
+  SLS-F+ (Fixed Z-Scores)    XGBoost -0.059938 12.930100 15.069435    0.089118
+      xG-Based Liveliness Linear Reg -0.148900  1.201993  1.545457    0.156011
+      xG-Based Liveliness    XGBoost  0.041991  1.107249  1.411239    0.301984
+
+BEST PERFORMERS:
+  Best R²: xG-Based Liveliness with XGBoost (R²=0.042)
+  Best Ranking: xG-Based Liveliness with XGBoost (ρ=0.302)
+
+IMPROVEMENT vs BASELINE:
+  SLS-F+ (Rolling Z-Scores):
+    Linear Reg: Δ -0.026
+    XGBoost:    Δ -0.066
+  SLS-F+ (Fixed Z-Scores):
+    Linear Reg: Δ -0.008
+    XGBoost:    Δ -0.145
+  xG-Based Liveliness:
+    Linear Reg: Δ -0.071
+    XGBoost:    Δ +0.034
