@@ -1,3 +1,6 @@
+# Misc.
+**/.DS_Store
+
 # Ignore the midterm video report
 FootyLiveliness-Report.mp4
 
@@ -6,6 +9,8 @@ FootyLiveliness-Report.mp4
 *.tex
 
 # Data folder may be too big to push
+data/22-23_PL_Data_raw/
+data/23-24_PL_Data_raw/
 data/24-25_PL_Data_csv/
 data/24-25_PL_Data_raw/
 data/24-25_PL_Data/
