@@ -1,5 +1,8 @@
 # Misc.
 **/.DS_Store
+# Reinforce the ignores.
+feature_tables/
+tables/
 
 # Ignore the midterm video report
 FootyLiveliness-Report.mp4
