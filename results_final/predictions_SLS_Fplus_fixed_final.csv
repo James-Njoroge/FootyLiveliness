@@ -1,0 +1,41 @@
+round,homeTeamName,awayTeamName,actual,xgb_prediction
+34,Chelsea,Liverpool,66.17859520688917,42.893185
+34,Brentford,Manchester United,66.96858081130466,43.828293
+34,Aston Villa,Fulham,33.69926183405829,53.36717
+34,Arsenal,AFC Bournemouth,38.4538867633985,48.595276
+34,West Ham United,Tottenham Hotspur,23.48841037172966,33.431904
+34,Brighton & Hove Albion,Newcastle United,38.78603507811461,52.735825
+34,Leicester City,Southampton,34.72210050390701,46.63742
+34,Manchester City,Wolverhampton Wanderers,24.031671138381206,60.342106
+34,Crystal Palace,Nottingham Forest,49.63409762145753,48.81344
+34,Everton,Ipswich Town,28.876669399018866,42.4025
+35,Nottingham Forest,Leicester City,45.111955753654456,40.047363
+35,Southampton,Manchester City,39.95106744046776,45.122185
+35,Ipswich Town,Brentford,41.22207875901847,43.670555
+35,Liverpool,Arsenal,74.68765847737527,36.618866
+35,AFC Bournemouth,Aston Villa,34.60761231745135,42.927753
+35,Fulham,Everton,45.434184350108815,38.007206
+35,Manchester United,West Ham United,64.02024215744122,40.613033
+35,Newcastle United,Chelsea,43.746327962060725,42.09167
+35,Tottenham Hotspur,Crystal Palace,67.8185683959968,47.5206
+35,Wolverhampton Wanderers,Brighton & Hove Albion,38.01775518582327,48.65979
+36,Arsenal,Newcastle United,51.01797014398653,35.228428
+36,Aston Villa,Tottenham Hotspur,37.90684580482921,45.93142
+36,Brentford,Fulham,63.81948097252267,46.27534
+36,Brighton & Hove Albion,Liverpool,79.98473181294699,53.070873
+36,Everton,Southampton,56.70669958623955,35.20467
+36,Leicester City,Ipswich Town,30.48869211905661,47.20958
+36,Manchester City,AFC Bournemouth,39.56030621798439,50.494556
+36,West Ham United,Nottingham Forest,56.02074220706904,45.70891
+36,Crystal Palace,Wolverhampton Wanderers,53.28764323875616,48.015007
+36,Chelsea,Manchester United,21.47230210003713,40.436615
+37,Liverpool,Crystal Palace,58.80248539582201,53.32639
+37,Ipswich Town,West Ham United,35.07246442555481,45.36519
+37,Newcastle United,Everton,48.97030475040211,45.558037
+37,Manchester United,Aston Villa,56.62927505843703,40.503014
+37,AFC Bournemouth,Leicester City,36.59729675444572,39.96782
+37,Fulham,Manchester City,64.96230785732821,43.37225
+37,Tottenham Hotspur,Brighton & Hove Albion,68.33588169363938,47.094627
+37,Wolverhampton Wanderers,Brentford,51.76412303570872,43.383064
+37,Southampton,Arsenal,53.41612685259666,43.89596
+37,Nottingham Forest,Chelsea,36.333014560623134,38.445934
