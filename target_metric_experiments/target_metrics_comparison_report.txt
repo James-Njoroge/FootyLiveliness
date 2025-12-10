@@ -1,0 +1,106 @@
+================================================================================
+TARGET METRICS COMPARISON REPORT
+================================================================================
+
+MODEL: Ridge Regression with 37 features
+SPLITS: Train (280) | Val (50) | Test (50)
+
+================================================================================
+RANKING BY TEST R² (Best to Worst)
+================================================================================
+
+1 Simple Xg
+--------------------------------------------------------------------------------
+  Test R²:        0.8118
+  Test MAE:        0.470
+  Test RMSE:       0.580
+  Test Spearman:   0.888
+  Test Top-10:     90.0%
+  Train R²:       0.8098
+  Overfitting:    -0.0019
+  Best Alpha:      21.54
+  Target Range:   [2.49, 5.29]
+
+6 Comprehensive
+--------------------------------------------------------------------------------
+  Test R²:        0.7241
+  Test MAE:        0.772
+  Test RMSE:       0.978
+  Test Spearman:   0.817
+  Test Top-10:     50.0%
+  Train R²:       0.7816
+  Overfitting:    0.0575
+  Best Alpha:      21.54
+  Target Range:   [7.59, 11.80]
+
+3 Chances
+--------------------------------------------------------------------------------
+  Test R²:        0.7022
+  Test MAE:        1.213
+  Test RMSE:       1.483
+  Test Spearman:   0.806
+  Test Top-10:     60.0%
+  Train R²:       0.7078
+  Overfitting:    0.0056
+  Best Alpha:      21.54
+  Target Range:   [9.87, 15.89]
+
+5 Intensity
+--------------------------------------------------------------------------------
+  Test R²:        0.6577
+  Test MAE:        0.805
+  Test RMSE:       0.985
+  Test Spearman:   0.787
+  Test Top-10:     50.0%
+  Train R²:       0.7243
+  Overfitting:    0.0666
+  Best Alpha:      21.54
+  Target Range:   [7.06, 10.87]
+
+2 Shot Quality
+--------------------------------------------------------------------------------
+  Test R²:        0.6470
+  Test MAE:        1.177
+  Test RMSE:       1.464
+  Test Spearman:   0.764
+  Test Top-10:     40.0%
+  Train R²:       0.7171
+  Overfitting:    0.0701
+  Best Alpha:      21.54
+  Target Range:   [8.60, 13.77]
+
+7 Minimal
+--------------------------------------------------------------------------------
+  Test R²:        0.5774
+  Test MAE:        1.396
+  Test RMSE:       1.754
+  Test Spearman:   0.718
+  Test Top-10:     50.0%
+  Train R²:       0.6401
+  Overfitting:    0.0627
+  Best Alpha:      21.54
+  Target Range:   [9.43, 15.03]
+
+4 End To End
+--------------------------------------------------------------------------------
+  Test R²:        0.4076
+  Test MAE:        2.722
+  Test RMSE:       3.428
+  Test Spearman:   0.587
+  Test Top-10:     50.0%
+  Train R²:       0.4013
+  Overfitting:    -0.0062
+  Best Alpha:      21.54
+  Target Range:   [9.69, 18.93]
+
+================================================================================
+RECOMMENDATION
+================================================================================
+
+Best Target Metric: 1 Simple Xg
+  - Test R²: 0.8118
+  - Test MAE: 0.470
+  - Top-10 Hit Rate: 90.0%
+  - Overfitting: -0.0019
+
+Current baseline (Simple xG) is already the best performer.
