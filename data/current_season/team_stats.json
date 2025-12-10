@@ -1,0 +1,222 @@
+{
+  "Arsenal": {
+    "position": 1,
+    "played": 15,
+    "wins": 10,
+    "draws": 3,
+    "losses": 2,
+    "goals_for": "28-9",
+    "goals_against": "0",
+    "goal_difference": 19,
+    "points": 33
+  },
+  "Manchester City": {
+    "position": 2,
+    "played": 15,
+    "wins": 10,
+    "draws": 1,
+    "losses": 4,
+    "goals_for": "35-16",
+    "goals_against": "0",
+    "goal_difference": 19,
+    "points": 31
+  },
+  "Aston Villa": {
+    "position": 3,
+    "played": 15,
+    "wins": 9,
+    "draws": 3,
+    "losses": 3,
+    "goals_for": "22-15",
+    "goals_against": "0",
+    "goal_difference": 7,
+    "points": 30
+  },
+  "Crystal Palace": {
+    "position": 4,
+    "played": 15,
+    "wins": 7,
+    "draws": 5,
+    "losses": 3,
+    "goals_for": "20-12",
+    "goals_against": "0",
+    "goal_difference": 8,
+    "points": 26
+  },
+  "Chelsea": {
+    "position": 5,
+    "played": 15,
+    "wins": 7,
+    "draws": 4,
+    "losses": 4,
+    "goals_for": "25-15",
+    "goals_against": "0",
+    "goal_difference": 10,
+    "points": 25
+  },
+  "Manchester United": {
+    "position": 6,
+    "played": 15,
+    "wins": 7,
+    "draws": 4,
+    "losses": 4,
+    "goals_for": "26-22",
+    "goals_against": "0",
+    "goal_difference": 4,
+    "points": 25
+  },
+  "Everton": {
+    "position": 7,
+    "played": 15,
+    "wins": 7,
+    "draws": 3,
+    "losses": 5,
+    "goals_for": "18-17",
+    "goals_against": "0",
+    "goal_difference": 1,
+    "points": 24
+  },
+  "Brighton & Hove Albion": {
+    "position": 8,
+    "played": 15,
+    "wins": 6,
+    "draws": 5,
+    "losses": 4,
+    "goals_for": "25-21",
+    "goals_against": "0",
+    "goal_difference": 4,
+    "points": 23
+  },
+  "Sunderland": {
+    "position": 9,
+    "played": 15,
+    "wins": 6,
+    "draws": 5,
+    "losses": 4,
+    "goals_for": "18-17",
+    "goals_against": "0",
+    "goal_difference": 1,
+    "points": 23
+  },
+  "Liverpool": {
+    "position": 10,
+    "played": 15,
+    "wins": 7,
+    "draws": 2,
+    "losses": 6,
+    "goals_for": "24-24",
+    "goals_against": "0",
+    "goal_difference": 0,
+    "points": 23
+  },
+  "Tottenham Hotspur": {
+    "position": 11,
+    "played": 15,
+    "wins": 6,
+    "draws": 4,
+    "losses": 5,
+    "goals_for": "25-18",
+    "goals_against": "0",
+    "goal_difference": 7,
+    "points": 22
+  },
+  "Newcastle United": {
+    "position": 12,
+    "played": 15,
+    "wins": 6,
+    "draws": 4,
+    "losses": 5,
+    "goals_for": "21-19",
+    "goals_against": "0",
+    "goal_difference": 2,
+    "points": 22
+  },
+  "AFC Bournemouth": {
+    "position": 13,
+    "played": 15,
+    "wins": 5,
+    "draws": 5,
+    "losses": 5,
+    "goals_for": "21-24",
+    "goals_against": "0",
+    "goal_difference": -3,
+    "points": 20
+  },
+  "Brentford": {
+    "position": 14,
+    "played": 15,
+    "wins": 6,
+    "draws": 1,
+    "losses": 8,
+    "goals_for": "21-24",
+    "goals_against": "0",
+    "goal_difference": -3,
+    "points": 19
+  },
+  "Fulham": {
+    "position": 15,
+    "played": 15,
+    "wins": 5,
+    "draws": 2,
+    "losses": 8,
+    "goals_for": "20-24",
+    "goals_against": "0",
+    "goal_difference": -4,
+    "points": 17
+  },
+  "Leeds United": {
+    "position": 16,
+    "played": 15,
+    "wins": 4,
+    "draws": 3,
+    "losses": 8,
+    "goals_for": "19-29",
+    "goals_against": "0",
+    "goal_difference": -10,
+    "points": 15
+  },
+  "Nottingham Forest": {
+    "position": 17,
+    "played": 15,
+    "wins": 4,
+    "draws": 3,
+    "losses": 8,
+    "goals_for": "14-25",
+    "goals_against": "0",
+    "goal_difference": -11,
+    "points": 15
+  },
+  "West Ham United": {
+    "position": 18,
+    "played": 15,
+    "wins": 3,
+    "draws": 4,
+    "losses": 8,
+    "goals_for": "17-29",
+    "goals_against": "0",
+    "goal_difference": -12,
+    "points": 13
+  },
+  "Burnley": {
+    "position": 19,
+    "played": 15,
+    "wins": 3,
+    "draws": 1,
+    "losses": 11,
+    "goals_for": "16-30",
+    "goals_against": "0",
+    "goal_difference": -14,
+    "points": 10
+  },
+  "Wolverhampton Wanderers": {
+    "position": 20,
+    "played": 15,
+    "wins": 0,
+    "draws": 2,
+    "losses": 13,
+    "goals_for": "8-33",
+    "goals_against": "0",
+    "goal_difference": -25,
+    "points": 2
+  }
+}

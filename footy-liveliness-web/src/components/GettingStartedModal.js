@@ -339,6 +339,34 @@ const GettingStartedModal = ({ onClose }) => {
             </div>
           </div>
 
+          {/* Live Data Scraping */}
+          <div>
+            <h3 className="text-xl font-bold text-purple-600 mb-4">🌐 Get Live Fixture Data (Optional)</h3>
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg">
+              <p className="mb-4 font-semibold">Scrape real upcoming fixtures from FotMob:</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
+                <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-sm">
+                  <div>python3 scrape_upcoming_fixtures.py</div>
+                </div>
+                <p className="text-sm text-gray-600 mt-2">⏱️ Takes ~2 seconds | Fetches 10-20 upcoming matches</p>
+              </div>
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                <p className="text-sm text-blue-800">
+                  <strong>📝 Note:</strong> By default, the app uses mock fixtures. Run the scraper to get real upcoming Premier League matches from FotMob!
+                </p>
+              </div>
+              <div className="mt-4 space-y-2 text-sm">
+                <p className="font-semibold text-gray-700">What it does:</p>
+                <ul className="list-disc list-inside text-gray-600 ml-4 space-y-1">
+                  <li>Fetches upcoming PL fixtures from FotMob API</li>
+                  <li>Saves to <code className="bg-white px-1 rounded">data/current_season/upcoming_fixtures.json</code></li>
+                  <li>API automatically loads and ranks them</li>
+                  <li>No Selenium or ChromeDriver needed!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Next Steps */}
           <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-lg">
             <h3 className="text-xl font-bold text-purple-800 mb-4">🎯 Next Steps</h3>
@@ -352,17 +380,23 @@ const GettingStartedModal = ({ onClose }) => {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">2️⃣</span>
                 <div>
-                  <strong>View Project Details:</strong> Click "Project Details" to see comprehensive analysis with charts
+                  <strong>Scrape Live Data:</strong> Run <code className="bg-white px-1 rounded">scrape_upcoming_fixtures.py</code> to get real fixtures
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-2xl">3️⃣</span>
                 <div>
-                  <strong>Check Architecture:</strong> Click "View Architecture Diagram" to understand the system design
+                  <strong>View Project Details:</strong> Click "Project Details" to see comprehensive analysis with charts
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-2xl">4️⃣</span>
+                <div>
+                  <strong>Check Architecture:</strong> Click "View Architecture Diagram" to understand the system design
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">5️⃣</span>
                 <div>
                   <strong>Customize:</strong> Modify components in <code className="bg-white px-1 rounded">src/components/</code> and see hot-reload in action
                 </div>

@@ -6,6 +6,7 @@ import AboutModal from './components/AboutModal';
 import ProjectDetailsModal from './components/ProjectDetailsModal';
 import ArchitectureDiagram from './components/ArchitectureDiagram';
 import GettingStartedModal from './components/GettingStartedModal';
+import Top10ComparisonModal from './components/Top10ComparisonModal';
 import Footer from './components/Footer';
 import { fetchUpcomingMatches } from './services/api';
 
@@ -17,6 +18,7 @@ function App() {
   const [showProjectDetailsModal, setShowProjectDetailsModal] = useState(false);
   const [showArchitectureDiagram, setShowArchitectureDiagram] = useState(false);
   const [showGettingStarted, setShowGettingStarted] = useState(false);
+  const [showTop10Comparison, setShowTop10Comparison] = useState(false);
 
   useEffect(() => {
     loadMatches();
@@ -46,6 +48,7 @@ function App() {
         onAboutClick={() => setShowAboutModal(true)}
         onProjectDetailsClick={() => setShowProjectDetailsModal(true)}
         onGettingStartedClick={() => setShowGettingStarted(true)}
+        onTop10ComparisonClick={() => setShowTop10Comparison(true)}
       />
       <StatsBar />
       
@@ -89,6 +92,10 @@ function App() {
 
       {showGettingStarted && (
         <GettingStartedModal onClose={() => setShowGettingStarted(false)} />
+      )}
+
+      {showTop10Comparison && (
+        <Top10ComparisonModal onClose={() => setShowTop10Comparison(false)} />
       )}
     </div>
   );

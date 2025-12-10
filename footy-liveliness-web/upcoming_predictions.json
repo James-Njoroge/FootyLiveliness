@@ -1,0 +1,102 @@
+[
+  {
+    "matchId": 1,
+    "home": "Arsenal",
+    "away": "Liverpool",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 1
+  },
+  {
+    "matchId": 2,
+    "home": "Manchester City",
+    "away": "Manchester United",
+    "date": "2025-12-15",
+    "time": "17:30",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 2
+  },
+  {
+    "matchId": 3,
+    "home": "Chelsea",
+    "away": "Tottenham Hotspur",
+    "date": "2025-12-15",
+    "time": "12:30",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 3
+  },
+  {
+    "matchId": 4,
+    "home": "Newcastle United",
+    "away": "Aston Villa",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 4
+  },
+  {
+    "matchId": 5,
+    "home": "Brighton & Hove Albion",
+    "away": "West Ham United",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 5
+  },
+  {
+    "matchId": 6,
+    "home": "Brentford",
+    "away": "Nottingham Forest",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 6
+  },
+  {
+    "matchId": 7,
+    "home": "Everton",
+    "away": "Fulham",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 7
+  },
+  {
+    "matchId": 8,
+    "home": "Leicester City",
+    "away": "Wolverhampton Wanderers",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 8
+  },
+  {
+    "matchId": 9,
+    "home": "Southampton",
+    "away": "AFC Bournemouth",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 9
+  },
+  {
+    "matchId": 10,
+    "home": "Crystal Palace",
+    "away": "Ipswich Town",
+    "date": "2025-12-15",
+    "time": "15:00",
+    "round": 17,
+    "predicted_liveliness": 5.3331573060686175,
+    "rank": 10
+  }
+]

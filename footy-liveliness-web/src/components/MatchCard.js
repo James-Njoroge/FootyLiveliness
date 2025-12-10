@@ -25,6 +25,9 @@ const MatchCard = ({ match, index }) => {
     return date.toLocaleDateString('en-US', options);
   };
 
+  // Generate FotMob URL if matchId is available
+  const fotmobUrl = match.matchId ? `https://www.fotmob.com/match/${match.matchId}` : null;
+
   return (
     <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <div className="flex items-center justify-between gap-4">
@@ -73,8 +76,8 @@ const MatchCard = ({ match, index }) => {
               />
             </div>
           </div>
-          <div className="text-base font-bold text-purple-600 min-w-[40px] text-right">
-            {livelinessScore.toFixed(1)}
+          <div className="text-base font-bold text-purple-600 min-w-[60px] text-right">
+            {livelinessScore.toFixed(4)}
           </div>
         </div>
 
@@ -83,6 +86,23 @@ const MatchCard = ({ match, index }) => {
           <div className="text-xs text-gray-500">{formatDate(match.date)}</div>
           <div className="text-xs font-medium text-gray-700">{match.time}</div>
         </div>
+
+        {/* FotMob Link Button */}
+        {fotmobUrl && (
+          <div className="min-w-[100px]">
+            <a
+              href={fotmobUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow-md"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+              Details
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );
