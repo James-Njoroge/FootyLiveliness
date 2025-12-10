@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import MatchCard from './MatchCard';
+import ComparisonView from './ComparisonView';
 
 const MatchList = ({ matches }) => {
   const [weekOffset, setWeekOffset] = useState(0); // 0 = current week, 1 = next week, -1 = last week
+  const [viewMode, setViewMode] = useState('normal'); // 'normal' or 'comparison'
 
   // Get week's date range (Sunday to Saturday) with offset
   const getWeekRange = (offset = 0) => {
@@ -65,6 +67,11 @@ const MatchList = ({ matches }) => {
     return `${Math.abs(weekOffset)} Weeks Ago`;
   };
 
+  // Check if this week has finished matches with actual data
+  const hasFinishedMatches = thisWeekMatches.some(
+    match => match.status === 'finished' && match.actualXG && match.actualXG.simple_xg
+  );
+
   return (
     <div>
       <div className="mb-8">
@@ -116,22 +123,54 @@ const MatchList = ({ matches }) => {
           </div>
         </div>
         
-        <p className="text-gray-600">
-          {formatDateRange()} • {thisWeekMatches.length} matches • Ranked by predicted liveliness
-        </p>
+        <div className="flex items-center justify-between">
+          <p className="text-gray-600">
+            {formatDateRange()} • {thisWeekMatches.length} matches • Ranked by predicted liveliness
+          </p>
+          
+          {/* View Mode Toggle (only show for weeks with finished matches) */}
+          {hasFinishedMatches && (
+            <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+              <button
+                onClick={() => setViewMode('normal')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                  viewMode === 'normal'
+                    ? 'bg-white text-purple-600 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                📊 Normal View
+              </button>
+              <button
+                onClick={() => setViewMode('comparison')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                  viewMode === 'comparison'
+                    ? 'bg-white text-green-600 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                ⚖️ Comparison View
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {thisWeekMatches.length > 0 ? (
-        <div className="space-y-2">
-          {thisWeekMatches.map((match, index) => {
-            // Create a new match object with updated rank for this week
-            const weekMatch = {
-              ...match,
-              rank: index + 1  // Rank within this week (1, 2, 3...)
-            };
-            return <MatchCard key={match.rank || index} match={weekMatch} index={index} />;
-          })}
-        </div>
+        viewMode === 'comparison' && hasFinishedMatches ? (
+          <ComparisonView matches={thisWeekMatches} />
+        ) : (
+          <div className="space-y-2">
+            {thisWeekMatches.map((match, index) => {
+              // Create a new match object with updated rank for this week
+              const weekMatch = {
+                ...match,
+                rank: index + 1  // Rank within this week (1, 2, 3...)
+              };
+              return <MatchCard key={match.rank || index} match={weekMatch} index={index} />;
+            })}
+          </div>
+        )
       ) : (
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
           <p className="text-blue-800 font-medium">

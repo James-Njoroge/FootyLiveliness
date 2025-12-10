@@ -4,6 +4,25 @@ import { getTeamLogo } from '../utils/teamLogos';
 const MatchCard = ({ match, index }) => {
   const livelinessScore = match.predicted_liveliness;
   const livelinessPercent = Math.min(100, (livelinessScore / 8) * 100);
+  
+  // Check if match is finished and has actual data
+  const isFinished = match.status === 'finished';
+  const hasActualData = match.actualXG && match.actualXG.simple_xg;
+  const actualLiveliness = hasActualData ? match.actualXG.simple_xg : null;
+  
+  // Calculate accuracy if we have actual data
+  let accuracy = null;
+  let accuracyColor = '';
+  if (actualLiveliness !== null) {
+    const diff = Math.abs(livelinessScore - actualLiveliness);
+    const percentDiff = (diff / actualLiveliness) * 100;
+    accuracy = 100 - Math.min(100, percentDiff);
+    
+    if (accuracy >= 90) accuracyColor = 'text-green-600';
+    else if (accuracy >= 75) accuracyColor = 'text-blue-600';
+    else if (accuracy >= 60) accuracyColor = 'text-yellow-600';
+    else accuracyColor = 'text-red-600';
+  }
 
   let rankBadge = '';
   let rankClass = '';
@@ -66,19 +85,51 @@ const MatchCard = ({ match, index }) => {
           </div>
         </div>
 
-        {/* Liveliness Score */}
-        <div className="flex items-center gap-3 min-w-[140px]">
-          <div className="flex-1">
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500"
-                style={{ width: `${livelinessPercent}%` }}
-              />
+        {/* Liveliness Score - Show Predicted vs Actual for finished matches */}
+        <div className="flex flex-col gap-2 min-w-[200px]">
+          {/* Predicted Score */}
+          <div className="flex items-center gap-3">
+            <div className="text-xs text-gray-500 w-16">Predicted:</div>
+            <div className="flex-1">
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div 
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500"
+                  style={{ width: `${livelinessPercent}%` }}
+                />
+              </div>
+            </div>
+            <div className="text-sm font-bold text-purple-600 min-w-[50px] text-right">
+              {livelinessScore.toFixed(2)}
             </div>
           </div>
-          <div className="text-base font-bold text-purple-600 min-w-[60px] text-right">
-            {livelinessScore.toFixed(4)}
-          </div>
+          
+          {/* Actual Score (if finished) */}
+          {isFinished && hasActualData && (
+            <div className="flex items-center gap-3">
+              <div className="text-xs text-gray-500 w-16">Actual:</div>
+              <div className="flex-1">
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full transition-all duration-500"
+                    style={{ width: `${Math.min(100, (actualLiveliness / 8) * 100)}%` }}
+                  />
+                </div>
+              </div>
+              <div className="text-sm font-bold text-green-600 min-w-[50px] text-right">
+                {actualLiveliness.toFixed(2)}
+              </div>
+            </div>
+          )}
+          
+          {/* Accuracy Badge (if finished) */}
+          {isFinished && hasActualData && accuracy !== null && (
+            <div className="flex items-center gap-2 justify-end">
+              <span className="text-xs text-gray-500">Accuracy:</span>
+              <span className={`text-xs font-bold ${accuracyColor}`}>
+                {accuracy.toFixed(0)}%
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Date & Time */}

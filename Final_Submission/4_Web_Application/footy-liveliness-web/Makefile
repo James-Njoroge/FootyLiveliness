@@ -1,7 +1,7 @@
 # Footy Liveliness - Makefile
 # Automates setup and running of the application
 
-.PHONY: help install install-python install-node scrape start-api start-frontend start clean test check-ports kill-ports
+.PHONY: help install install-python install-node scrape scrape-upcoming update start-api start-frontend start stop status clean test check-ports kill-ports
 
 # Default target - show help
 help:
@@ -12,10 +12,14 @@ help:
 	@echo "Available commands:"
 	@echo ""
 	@echo "  make install          - Install all dependencies (Python + Node)"
-	@echo "  make scrape           - Scrape latest fixtures from FotMob"
+	@echo "  make scrape           - Scrape all season fixtures from FotMob"
+	@echo "  make scrape-upcoming  - Scrape only upcoming fixtures (faster)"
+	@echo "  make update           - Re-scrape data and restart application"
 	@echo "  make start            - Start both API and frontend"
 	@echo "  make start-api        - Start Flask API only"
 	@echo "  make start-frontend   - Start React frontend only"
+	@echo "  make stop             - Stop all running processes"
+	@echo "  make status           - Check application status"
 	@echo "  make clean            - Clean up temporary files"
 	@echo "  make kill-ports       - Kill processes on ports 5001 and 3000"
 	@echo "  make test             - Test API endpoints"
@@ -47,11 +51,39 @@ install-node:
 	npm install
 	@echo "✅ Node.js dependencies installed"
 
-# Scrape latest fixtures from FotMob
+# Scrape all season fixtures from FotMob (past + future)
 scrape:
-	@echo "🌐 Scraping latest fixtures from FotMob..."
+	@echo "🌐 Scraping all season fixtures from FotMob (this may take a few minutes)..."
+	python3 scrape_all_season_fixtures.py
+	@echo "✅ All fixtures scraped and saved"
+
+# Scrape only upcoming fixtures (faster)
+scrape-upcoming:
+	@echo "🌐 Scraping upcoming fixtures from FotMob..."
 	python3 scrape_upcoming_fixtures.py
-	@echo "✅ Fixtures scraped and saved"
+	@echo "✅ Upcoming fixtures scraped and saved"
+
+# Update: Re-scrape data and restart application
+update:
+	@echo "╔════════════════════════════════════════════════════════════════╗"
+	@echo "║              Updating Footy Liveliness Data                    ║"
+	@echo "╚════════════════════════════════════════════════════════════════╝"
+	@echo ""
+	@echo "📊 Step 1/3: Stopping application..."
+	@$(MAKE) stop
+	@echo ""
+	@echo "🌐 Step 2/3: Re-scraping fixtures from FotMob..."
+	@$(MAKE) scrape
+	@echo ""
+	@echo "🚀 Step 3/3: Restarting application with new data..."
+	@$(MAKE) start
+	@echo ""
+	@echo "╔════════════════════════════════════════════════════════════════╗"
+	@echo "║              ✅ Update Complete!                               ║"
+	@echo "╚════════════════════════════════════════════════════════════════╝"
+	@echo ""
+	@echo "📱 Application running with latest data at http://localhost:3000"
+	@echo "🔄 New predictions loaded from updated fixtures"
 
 # Check if ports are available
 check-ports:

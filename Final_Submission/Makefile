@@ -1,7 +1,7 @@
 # Footy Liveliness - Root Makefile
 # Quick access to web application commands
 
-.PHONY: help install start stop demo
+.PHONY: help install start stop demo status clean scrape update test validate open logs
 
 WEB_APP_DIR = 4_Web_Application/footy-liveliness-web
 
@@ -16,6 +16,7 @@ help:
 	@echo "  make start      - Start the application"
 	@echo "  make stop       - Stop the application"
 	@echo "  make demo       - Full demo (install + scrape + start)"
+	@echo "  make update     - Re-scrape data and restart application"
 	@echo "  make status     - Check application status"
 	@echo "  make clean      - Clean up temporary files"
 	@echo ""
@@ -49,6 +50,9 @@ clean:
 
 scrape:
 	@cd $(WEB_APP_DIR) && make scrape
+
+update:
+	@cd $(WEB_APP_DIR) && make update
 
 test:
 	@cd $(WEB_APP_DIR) && make test

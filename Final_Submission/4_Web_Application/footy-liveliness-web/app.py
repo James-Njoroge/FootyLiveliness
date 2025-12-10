@@ -33,37 +33,57 @@ with open('team_stats.pkl', 'rb') as f:
 
 print(f"✓ Model loaded ({len(feature_names)} features)")
 
-# Load upcoming fixtures from scraped data
-FIXTURES_FILE = "../data/current_season/upcoming_fixtures.json"
+# Load fixtures from scraped data (try all_fixtures.json first, then upcoming_fixtures.json)
+ALL_FIXTURES_FILE = "../data/current_season/all_fixtures.json"
+UPCOMING_FIXTURES_FILE = "../data/current_season/upcoming_fixtures.json"
 
-def load_upcoming_fixtures():
+def load_fixtures():
     """Load fixtures from JSON file, fallback to mock data if not available"""
+    # Try all_fixtures.json first (includes past and future matches)
     try:
-        if os.path.exists(FIXTURES_FILE):
-            with open(FIXTURES_FILE, 'r', encoding='utf-8') as f:
+        if os.path.exists(ALL_FIXTURES_FILE):
+            with open(ALL_FIXTURES_FILE, 'r', encoding='utf-8') as f:
                 fixtures = json.load(f)
                 if fixtures:
-                    print(f"✓ Loaded {len(fixtures)} fixtures from {FIXTURES_FILE}")
+                    print(f"✓ Loaded {len(fixtures)} fixtures from {ALL_FIXTURES_FILE}")
+                    finished = sum(1 for f in fixtures if f.get('status') == 'finished')
+                    upcoming = sum(1 for f in fixtures if f.get('status') == 'upcoming')
+                    print(f"  • {finished} finished matches, {upcoming} upcoming matches")
                     return fixtures
     except Exception as e:
-        print(f"⚠ Error loading fixtures file: {e}")
+        print(f"⚠ Error loading all_fixtures file: {e}")
+    
+    # Fallback to upcoming_fixtures.json
+    try:
+        if os.path.exists(UPCOMING_FIXTURES_FILE):
+            with open(UPCOMING_FIXTURES_FILE, 'r', encoding='utf-8') as f:
+                fixtures = json.load(f)
+                if fixtures:
+                    print(f"✓ Loaded {len(fixtures)} fixtures from {UPCOMING_FIXTURES_FILE}")
+                    # Add status field if not present
+                    for fixture in fixtures:
+                        if 'status' not in fixture:
+                            fixture['status'] = 'upcoming'
+                    return fixtures
+    except Exception as e:
+        print(f"⚠ Error loading upcoming_fixtures file: {e}")
     
     # Fallback to mock data
-    print("⚠ Using mock fixtures (run scrape_upcoming_fixtures.py to get real data)")
+    print("⚠ Using mock fixtures (run scrape_all_season_fixtures.py to get real data)")
     return [
-        {"home": "Arsenal", "away": "Manchester City", "date": "2025-01-15", "time": "20:00"},
-        {"home": "Liverpool", "away": "Chelsea", "date": "2025-01-15", "time": "17:30"},
-        {"home": "Manchester United", "away": "Tottenham Hotspur", "date": "2025-01-16", "time": "16:30"},
-        {"home": "Newcastle United", "away": "Aston Villa", "date": "2025-01-16", "time": "19:00"},
-        {"home": "Brighton & Hove Albion", "away": "West Ham United", "date": "2025-01-17", "time": "20:00"},
-        {"home": "Brentford", "away": "Nottingham Forest", "date": "2025-01-18", "time": "15:00"},
-        {"home": "Everton", "away": "Fulham", "date": "2025-01-18", "time": "15:00"},
-        {"home": "Leicester City", "away": "Crystal Palace", "date": "2025-01-18", "time": "15:00"},
-        {"home": "Southampton", "away": "AFC Bournemouth", "date": "2025-01-18", "time": "15:00"},
-        {"home": "Wolverhampton Wanderers", "away": "Ipswich Town", "date": "2025-01-19", "time": "16:00"},
+        {"home": "Arsenal", "away": "Manchester City", "date": "2025-01-15", "time": "20:00", "status": "upcoming"},
+        {"home": "Liverpool", "away": "Chelsea", "date": "2025-01-15", "time": "17:30", "status": "upcoming"},
+        {"home": "Manchester United", "away": "Tottenham Hotspur", "date": "2025-01-16", "time": "16:30", "status": "upcoming"},
+        {"home": "Newcastle United", "away": "Aston Villa", "date": "2025-01-16", "time": "19:00", "status": "upcoming"},
+        {"home": "Brighton & Hove Albion", "away": "West Ham United", "date": "2025-01-17", "time": "20:00", "status": "upcoming"},
+        {"home": "Brentford", "away": "Nottingham Forest", "date": "2025-01-18", "time": "15:00", "status": "upcoming"},
+        {"home": "Everton", "away": "Fulham", "date": "2025-01-18", "time": "15:00", "status": "upcoming"},
+        {"home": "Leicester City", "away": "Crystal Palace", "date": "2025-01-18", "time": "15:00", "status": "upcoming"},
+        {"home": "Southampton", "away": "AFC Bournemouth", "date": "2025-01-18", "time": "15:00", "status": "upcoming"},
+        {"home": "Wolverhampton Wanderers", "away": "Ipswich Town", "date": "2025-01-19", "time": "16:00", "status": "upcoming"},
     ]
 
-UPCOMING_FIXTURES = load_upcoming_fixtures()
+ALL_FIXTURES = load_fixtures()
 
 def create_features_for_match(home_team, away_team):
     """
@@ -126,14 +146,14 @@ def predict():
 
 @app.route('/api/upcoming', methods=['GET'])
 def upcoming():
-    """Get all upcoming fixtures with predictions"""
+    """Get all fixtures (past and future) with predictions"""
     # Reload fixtures to get latest data
-    global UPCOMING_FIXTURES
-    UPCOMING_FIXTURES = load_upcoming_fixtures()
+    global ALL_FIXTURES
+    ALL_FIXTURES = load_fixtures()
     
     predictions = []
     
-    for fixture in UPCOMING_FIXTURES:
+    for fixture in ALL_FIXTURES:
         # Create features
         X = create_features_for_match(fixture['home'], fixture['away'])
         X_scaled = scaler.transform(X)
@@ -146,12 +166,19 @@ def upcoming():
             "away": fixture['away'],
             "date": fixture.get('date', 'TBD'),
             "time": fixture.get('time', 'TBD'),
-            "predicted_liveliness": round(float(prediction), 2)
+            "predicted_liveliness": round(float(prediction), 2),
+            "status": fixture.get('status', 'upcoming')
         }
         
         # Add matchId if available
         if 'matchId' in fixture:
             pred_dict['matchId'] = fixture['matchId']
+        
+        # Add actual data if available (for finished matches)
+        if fixture.get('actualXG'):
+            pred_dict['actualXG'] = fixture['actualXG']
+        if fixture.get('actualScore'):
+            pred_dict['actualScore'] = fixture['actualScore']
         
         predictions.append(pred_dict)
     
