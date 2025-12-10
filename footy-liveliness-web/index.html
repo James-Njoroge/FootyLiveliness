@@ -29,13 +29,56 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.8; }
         }
+        .team-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
     <div class="gradient-bg text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="text-center">
+            <div class="text-center relative">
+                <button onclick="openAboutModal()" class="absolute right-0 top-0 bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    About
+                </button>
                 <h1 class="text-5xl font-bold mb-4">⚽ Footy Liveliness</h1>
                 <p class="text-xl text-purple-100 mb-2">AI-Powered Premier League Match Rankings</p>
                 <p class="text-sm text-purple-200">Predicting the most exciting matches to watch</p>
@@ -88,8 +131,89 @@
                 <p class="text-gray-600">Ranked by predicted match liveliness</p>
             </div>
 
-            <div id="matches-container" class="space-y-4">
+            <div id="matches-container" class="space-y-2">
                 <!-- Matches will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content p-8 m-4">
+            <div class="flex justify-between items-start mb-6">
+                <h2 class="text-3xl font-bold text-gray-900">About Footy Liveliness</h2>
+                <button onclick="closeAboutModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            
+            <div class="space-y-6 text-gray-700">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">🎯 What is this?</h3>
+                    <p>An AI-powered system that predicts Premier League match "liveliness" (excitement level) to help football fans decide which matches to watch when multiple games are happening simultaneously.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">🤖 The Model</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Algorithm:</strong> Elastic Net Regression</li>
+                        <li><strong>Target Metric:</strong> Simple xG (xG_total + min(xG_home, xG_away))</li>
+                        <li><strong>Features:</strong> 37 engineered features including team form, attacking strength, defensive stats, league position, and recent performance</li>
+                        <li><strong>Training Data:</strong> 2024/25 Premier League season (380 matches)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">📊 Performance</h3>
+                    <div class="grid grid-cols-2 gap-4 bg-purple-50 p-4 rounded-lg">
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">82%</div>
+                            <div class="text-sm text-gray-600">R² Score (Variance Explained)</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">90%</div>
+                            <div class="text-sm text-gray-600">Top-10 Hit Rate</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">0.45</div>
+                            <div class="text-sm text-gray-600">Mean Absolute Error</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">0.90</div>
+                            <div class="text-sm text-gray-600">Spearman ρ (Ranking)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">🎓 Project Info</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Course:</strong> CS 506 - Data Science</li>
+                        <li><strong>Institution:</strong> Boston University</li>
+                        <li><strong>Team:</strong> James Njoroge, Muhammad Raka Zuhdi, Fola Oladipo</li>
+                        <li><strong>Semester:</strong> Fall 2025</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">💡 How It Works</h3>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>Collects pre-match statistics for both teams (rolling 5-match averages)</li>
+                        <li>Analyzes 37 features including offensive power, defensive weakness, form, and league position</li>
+                        <li>Predicts match liveliness using the trained Elastic Net model</li>
+                        <li>Ranks all upcoming fixtures by predicted excitement level</li>
+                    </ol>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <p class="text-sm text-blue-900">
+                        <strong>Note:</strong> This model explains 82% of variance in match excitement. The remaining 18% includes unpredictable factors like injuries, tactics, individual brilliance, and luck.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button onclick="closeAboutModal()" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                    Close
+                </button>
             </div>
         </div>
     </div>
@@ -163,53 +287,61 @@
 
         function createMatchCard(match, index) {
             const div = document.createElement('div');
-            div.className = 'bg-white rounded-lg shadow-md p-6 card-hover';
+            div.className = 'bg-white rounded-lg shadow-md p-4 card-hover';
 
             const isTopMatch = index < 3;
             const livelinessScore = match.predicted_liveliness;
             const livelinessPercent = Math.min(100, (livelinessScore / 8) * 100);
 
             let rankBadge = '';
+            let rankClass = '';
             if (index === 0) {
-                rankBadge = '<span class="fire-icon text-2xl">🔥</span> <span class="text-red-600 font-bold">MUST WATCH</span>';
+                rankBadge = '<span class="fire-icon text-lg">🔥</span>';
+                rankClass = 'text-red-600';
             } else if (index === 1) {
-                rankBadge = '<span class="text-orange-600 font-bold">⭐ HIGHLY RECOMMENDED</span>';
+                rankBadge = '<span class="text-lg">⭐</span>';
+                rankClass = 'text-orange-600';
             } else if (index === 2) {
-                rankBadge = '<span class="text-yellow-600 font-bold">✨ RECOMMENDED</span>';
+                rankBadge = '<span class="text-lg">✨</span>';
+                rankClass = 'text-yellow-600';
             }
 
             div.innerHTML = `
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="text-2xl font-bold text-gray-400">#${match.rank}</div>
-                        ${rankBadge ? `<div>${rankBadge}</div>` : ''}
+                <div class="flex items-center justify-between gap-4">
+                    <!-- Rank & Badge -->
+                    <div class="flex items-center gap-2 min-w-[60px]">
+                        <div class="text-xl font-bold ${rankClass || 'text-gray-400'}">#${match.rank}</div>
+                        ${rankBadge}
                     </div>
-                    <div class="text-right">
-                        <div class="text-sm text-gray-500">${formatDate(match.date)}</div>
-                        <div class="text-sm font-medium text-gray-700">${match.time}</div>
-                    </div>
-                </div>
 
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex-1 text-right pr-4">
-                        <div class="text-xl font-bold text-gray-900">${match.home}</div>
+                    <!-- Teams -->
+                    <div class="flex items-center justify-center flex-1 gap-3">
+                        <div class="flex items-center justify-end gap-2 flex-1">
+                            <div class="text-base font-bold text-gray-900 text-right truncate">${match.home}</div>
+                            <img src="${getTeamLogo(match.home)}" alt="${match.home}" class="team-logo" onerror="this.style.display='none'">
+                        </div>
+                        <div class="text-lg font-bold text-gray-400 px-2">vs</div>
+                        <div class="flex items-center justify-start gap-2 flex-1">
+                            <img src="${getTeamLogo(match.away)}" alt="${match.away}" class="team-logo" onerror="this.style.display='none'">
+                            <div class="text-base font-bold text-gray-900 text-left truncate">${match.away}</div>
+                        </div>
                     </div>
-                    <div class="px-4">
-                        <div class="text-2xl font-bold text-gray-400">vs</div>
-                    </div>
-                    <div class="flex-1 text-left pl-4">
-                        <div class="text-xl font-bold text-gray-900">${match.away}</div>
-                    </div>
-                </div>
 
-                <div class="mt-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="text-sm font-medium text-gray-600">Predicted Liveliness</span>
-                        <span class="text-lg font-bold text-purple-600">${livelinessScore.toFixed(2)}</span>
+                    <!-- Liveliness Score -->
+                    <div class="flex items-center gap-3 min-w-[140px]">
+                        <div class="flex-1">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500" 
+                                     style="width: ${livelinessPercent}%"></div>
+                            </div>
+                        </div>
+                        <div class="text-base font-bold text-purple-600 min-w-[40px] text-right">${livelinessScore.toFixed(1)}</div>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-500" 
-                             style="width: ${livelinessPercent}%"></div>
+
+                    <!-- Date & Time -->
+                    <div class="text-right min-w-[100px]">
+                        <div class="text-xs text-gray-500">${formatDate(match.date)}</div>
+                        <div class="text-xs font-medium text-gray-700">${match.time}</div>
                     </div>
                 </div>
             `;
@@ -222,6 +354,53 @@
             const options = { weekday: 'short', month: 'short', day: 'numeric' };
             return date.toLocaleDateString('en-US', options);
         }
+
+        function getTeamLogo(teamName) {
+            // Map team names to their logo URLs (using FotMob CDN)
+            const teamLogos = {
+                'Arsenal': 'https://images.fotmob.com/image_resources/logo/teamlogo/9825_small.png',
+                'Aston Villa': 'https://images.fotmob.com/image_resources/logo/teamlogo/10252_small.png',
+                'AFC Bournemouth': 'https://images.fotmob.com/image_resources/logo/teamlogo/8678_small.png',
+                'Brentford': 'https://images.fotmob.com/image_resources/logo/teamlogo/9937_small.png',
+                'Brighton & Hove Albion': 'https://images.fotmob.com/image_resources/logo/teamlogo/10204_small.png',
+                'Brighton': 'https://images.fotmob.com/image_resources/logo/teamlogo/10204_small.png',
+                'Chelsea': 'https://images.fotmob.com/image_resources/logo/teamlogo/8455_small.png',
+                'Crystal Palace': 'https://images.fotmob.com/image_resources/logo/teamlogo/9826_small.png',
+                'Everton': 'https://images.fotmob.com/image_resources/logo/teamlogo/8668_small.png',
+                'Fulham': 'https://images.fotmob.com/image_resources/logo/teamlogo/9879_small.png',
+                'Ipswich Town': 'https://images.fotmob.com/image_resources/logo/teamlogo/10233_small.png',
+                'Leicester City': 'https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png',
+                'Liverpool': 'https://images.fotmob.com/image_resources/logo/teamlogo/8650_small.png',
+                'Manchester City': 'https://images.fotmob.com/image_resources/logo/teamlogo/8456_small.png',
+                'Manchester United': 'https://images.fotmob.com/image_resources/logo/teamlogo/10260_small.png',
+                'Newcastle United': 'https://images.fotmob.com/image_resources/logo/teamlogo/10261_small.png',
+                'Nottingham Forest': 'https://images.fotmob.com/image_resources/logo/teamlogo/10203_small.png',
+                'Southampton': 'https://images.fotmob.com/image_resources/logo/teamlogo/8466_small.png',
+                'Tottenham Hotspur': 'https://images.fotmob.com/image_resources/logo/teamlogo/8586_small.png',
+                'Tottenham': 'https://images.fotmob.com/image_resources/logo/teamlogo/8586_small.png',
+                'West Ham United': 'https://images.fotmob.com/image_resources/logo/teamlogo/8654_small.png',
+                'West Ham': 'https://images.fotmob.com/image_resources/logo/teamlogo/8654_small.png',
+                'Wolverhampton Wanderers': 'https://images.fotmob.com/image_resources/logo/teamlogo/8602_small.png',
+                'Wolves': 'https://images.fotmob.com/image_resources/logo/teamlogo/8602_small.png'
+            };
+            
+            return teamLogos[teamName] || '';
+        }
+
+        function openAboutModal() {
+            document.getElementById('aboutModal').classList.add('active');
+        }
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('aboutModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAboutModal();
+            }
+        });
 
         // Load matches on page load
         loadMatches();
