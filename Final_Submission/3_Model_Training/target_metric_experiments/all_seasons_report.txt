@@ -1,0 +1,112 @@
+================================================================================
+ALL-SEASONS MODEL COMPARISON
+================================================================================
+
+DATASET:
+  Total matches: 990
+  Seasons: 2022/23, 2023/24, 2024/25
+  Train: 470 matches
+  Val:   190 matches
+  Test:  330 matches
+
+TARGET METRIC: Simple xG (winner from single-season experiments)
+FEATURES: 19 rolling and aggregate features
+
+================================================================================
+RESULTS BY MODEL
+================================================================================
+
+Ridge
+--------------------------------------------------------------------------------
+  Train:
+    R²:          0.0365
+    MAE:          1.102
+    RMSE:         1.394
+    Spearman ρ:   0.180
+    Top-10 Hit:   20.0%
+  Val:
+    R²:          -0.0157
+    MAE:          1.181
+    RMSE:         1.483
+    Spearman ρ:   0.011
+    Top-10 Hit:    0.0%
+  Test:
+    R²:          -0.1537
+    MAE:          1.255
+    RMSE:         1.521
+    Spearman ρ:  -0.092
+    Top-10 Hit:   10.0%
+
+ElasticNet
+--------------------------------------------------------------------------------
+  Train:
+    R²:          0.0297
+    MAE:          1.107
+    RMSE:         1.399
+    Spearman ρ:   0.161
+    Top-10 Hit:   10.0%
+  Val:
+    R²:          -0.0035
+    MAE:          1.180
+    RMSE:         1.474
+    Spearman ρ:   0.032
+    Top-10 Hit:    0.0%
+  Test:
+    R²:          -0.1430
+    MAE:          1.247
+    RMSE:         1.514
+    Spearman ρ:  -0.102
+    Top-10 Hit:   10.0%
+
+GradientBoosting
+--------------------------------------------------------------------------------
+  Train:
+    R²:          0.3714
+    MAE:          0.879
+    RMSE:         1.126
+    Spearman ρ:   0.680
+    Top-10 Hit:   60.0%
+  Val:
+    R²:          -0.1851
+    MAE:          1.271
+    RMSE:         1.601
+    Spearman ρ:  -0.012
+    Top-10 Hit:    0.0%
+  Test:
+    R²:          -0.1443
+    MAE:          1.220
+    RMSE:         1.515
+    Spearman ρ:   0.005
+    Top-10 Hit:    0.0%
+
+================================================================================
+BEST MODEL (BY TEST R²)
+================================================================================
+
+Model: ElasticNet
+  Test R²:        -0.1430
+  Test MAE:       1.247
+  Top-10 Hit:     10.0%
+
+================================================================================
+COMPARISON TO SINGLE-SEASON BASELINE
+================================================================================
+
+Single-Season (2024/25 only):
+  Model: Elastic Net
+  Test R²: 0.8205
+  Test MAE: 0.452
+  Top-10 Hit: 90.0%
+  Training samples: 280
+
+All-Seasons (2022/23, 2023/24, 2024/25):
+  Model: ElasticNet
+  Test R²: -0.1430
+  Test MAE: 1.247
+  Top-10 Hit: 10.0%
+  Training samples: 470
+
+R² Change: -117.4%
+
+✗ All-seasons approach DECREASES performance.
+  Recommendation: Stick with single-season model.
