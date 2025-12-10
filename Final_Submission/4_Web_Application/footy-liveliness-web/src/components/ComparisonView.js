@@ -53,7 +53,7 @@ const ComparisonView = ({ matches }) => {
     else accuracyColor = 'text-red-600 bg-red-50';
 
     const score = showActual ? actual : predicted;
-    const barColor = showActual ? 'from-green-500 to-emerald-500' : 'from-purple-500 to-pink-500';
+    const barColor = showActual ? 'from-green-500 to-emerald-500' : 'from-yellow-500 to-pink-500';
 
     return (
       <div className="flex items-center gap-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
@@ -95,7 +95,7 @@ const ComparisonView = ({ matches }) => {
               />
             </div>
           </div>
-          <div className={`text-sm font-bold min-w-[45px] text-right ${showActual ? 'text-green-600' : 'text-purple-600'}`}>
+          <div className={`text-sm font-bold min-w-[45px] text-right ${showActual ? 'text-green-600' : 'text-orange-600'}`}>
             {score.toFixed(2)}
           </div>
         </div>
@@ -111,10 +111,10 @@ const ComparisonView = ({ matches }) => {
   return (
     <div className="space-y-6">
       {/* Summary Stats */}
-      <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200">
+      <div className="bg-gradient-to-r from-yellow-50 to-blue-50 rounded-lg p-6 border border-yellow-200">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
-            <div className="text-3xl font-bold text-purple-600">{finishedMatches.length}</div>
+            <div className="text-3xl font-bold text-orange-600">{finishedMatches.length}</div>
             <div className="text-sm text-gray-600">Matches Analyzed</div>
           </div>
           <div>
@@ -135,7 +135,7 @@ const ComparisonView = ({ matches }) => {
         {/* Predicted Ranking */}
         <div>
           <div className="mb-4">
-            <h3 className="text-xl font-bold text-purple-600 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-orange-600 flex items-center gap-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
               </svg>

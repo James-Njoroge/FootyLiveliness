@@ -75,7 +75,7 @@ const Top10ComparisonModal = ({ onClose }) => {
                 <div className="text-xs text-gray-500 mt-2">82.1% variance explained</div>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="text-3xl font-bold text-purple-600">0.896</div>
+                <div className="text-3xl font-bold text-orange-600">0.896</div>
                 <div className="text-sm text-gray-600 mt-1">Spearman ρ</div>
                 <div className="text-xs text-gray-500 mt-2">Excellent rank correlation</div>
               </div>
@@ -84,15 +84,15 @@ const Top10ComparisonModal = ({ onClose }) => {
 
           {/* Side-by-Side Comparison */}
           <div>
-            <h3 className="text-xl font-bold text-purple-600 mb-4">🔍 Predicted vs Actual Rankings</h3>
+            <h3 className="text-xl font-bold text-orange-600 mb-4">🔍 Predicted vs Actual Rankings</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {/* Predicted Top 10 */}
               <div>
-                <div className="bg-purple-100 px-4 py-2 rounded-t-lg">
-                  <h4 className="font-bold text-purple-800">🤖 Model Predictions</h4>
-                  <p className="text-xs text-purple-600">Based on pre-match team statistics</p>
+                <div className="bg-yellow-100 px-4 py-2 rounded-t-lg">
+                  <h4 className="font-bold text-orange-800">🤖 Model Predictions</h4>
+                  <p className="text-xs text-orange-600">Based on pre-match team statistics</p>
                 </div>
-                <div className="bg-white border border-purple-100 rounded-b-lg">
+                <div className="bg-white border border-yellow-100 rounded-b-lg">
                   {predictedTop10.map((match, index) => {
                     const isCorrect = actualMatchIds.slice(0, 10).includes(`${match.home}-${match.away}`);
                     return (
@@ -104,7 +104,7 @@ const Top10ComparisonModal = ({ onClose }) => {
                       >
                         <div className="flex items-center gap-3 flex-1">
                           <div className={`text-sm font-bold w-8 ${
-                            index < 3 ? 'text-purple-600' : 'text-gray-500'
+                            index < 3 ? 'text-orange-600' : 'text-gray-500'
                           }`}>
                             #{match.rank}
                           </div>
@@ -116,7 +116,7 @@ const Top10ComparisonModal = ({ onClose }) => {
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm font-bold text-purple-600">
+                          <div className="text-sm font-bold text-orange-600">
                             {match.predictedScore.toFixed(2)}
                           </div>
                           {isCorrect && (
@@ -198,7 +198,7 @@ const Top10ComparisonModal = ({ onClose }) => {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-purple-600 text-xl">🎯</span>
+                <span className="text-orange-600 text-xl">🎯</span>
                 <div>
                   <strong>Big Match Focus:</strong> The model excels at identifying high-profile clashes (Liverpool vs Chelsea, 
                   Arsenal vs Man City) which tend to be the most exciting.
@@ -241,7 +241,7 @@ const Top10ComparisonModal = ({ onClose }) => {
         <div className="mt-8 text-center sticky bottom-0 bg-white pt-4 border-t px-6 md:px-8 pb-6 md:pb-8">
           <button 
             onClick={onClose}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
           >
             Close
           </button>

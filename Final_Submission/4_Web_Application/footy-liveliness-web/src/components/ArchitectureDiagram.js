@@ -18,21 +18,21 @@ const ArchitectureDiagram = ({ onClose }) => {
         className="bg-white rounded-xl max-w-7xl max-h-[95vh] overflow-y-auto p-6 md:p-8 modal-content-enter w-full"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-start mb-6 sticky top-0 bg-white z-10 pb-4 border-b">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">🏗️ System Architecture</h2>
+        <div className="flex items-center gap-4 sticky top-0 bg-white z-10 pb-4 mb-6 border-b">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex-1">🏗️ System Architecture</h2>
           <button 
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center transition-all text-2xl font-bold"
+            className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center transition-all text-2xl font-bold flex-shrink-0"
             aria-label="Close"
           >
             ×
           </button>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 pt-2">
           {/* Architecture Diagram */}
-          <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl">
-            <h3 className="text-xl font-bold text-purple-800 mb-6 text-center">End-to-End ML Pipeline</h3>
+          <div className="bg-gradient-to-br from-yellow-50 to-blue-50 p-6 md:p-8 rounded-xl">
+            <h3 className="text-2xl font-bold text-orange-800 mb-6 text-center">End-to-End ML Pipeline</h3>
             
             {/* Data Collection Layer */}
             <div className="mb-8">
@@ -78,7 +78,7 @@ const ArchitectureDiagram = ({ onClose }) => {
 
             {/* Arrow Down */}
             <div className="flex justify-center mb-8">
-              <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v10.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 14.586V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
             </div>
@@ -119,7 +119,7 @@ const ArchitectureDiagram = ({ onClose }) => {
 
             {/* Arrow Down */}
             <div className="flex justify-center mb-8">
-              <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v10.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 14.586V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
             </div>
@@ -170,19 +170,19 @@ const ArchitectureDiagram = ({ onClose }) => {
 
             {/* Arrow Down */}
             <div className="flex justify-center mb-8">
-              <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v10.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 14.586V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
             </div>
 
             {/* Model Training Layer */}
             <div className="mb-8">
-              <div className="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold text-center mb-4">
+              <div className="bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold text-center mb-4">
                 4️⃣ MODEL TRAINING & EVALUATION
               </div>
               <div className="grid md:grid-cols-4 gap-4">
-                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-purple-200">
-                  <div className="font-semibold text-purple-800 mb-2">📊 Data Split</div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-yellow-200">
+                  <div className="font-semibold text-orange-800 mb-2">📊 Data Split</div>
                   <div className="text-sm text-gray-700">
                     <ul className="text-xs space-y-1">
                       <li>• Train: 280 (rounds 0-27)</li>
@@ -192,8 +192,8 @@ const ArchitectureDiagram = ({ onClose }) => {
                     </ul>
                   </div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-purple-200">
-                  <div className="font-semibold text-purple-800 mb-2">🤖 Models Tested</div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-yellow-200">
+                  <div className="font-semibold text-orange-800 mb-2">🤖 Models Tested</div>
                   <div className="text-sm text-gray-700">
                     <ul className="text-xs space-y-1">
                       <li>✅ <strong>Elastic Net</strong> (0.82)</li>
@@ -204,8 +204,8 @@ const ArchitectureDiagram = ({ onClose }) => {
                     </ul>
                   </div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-purple-200">
-                  <div className="font-semibold text-purple-800 mb-2">🎯 Hyperparameters</div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-yellow-200">
+                  <div className="font-semibold text-orange-800 mb-2">🎯 Hyperparameters</div>
                   <div className="text-sm text-gray-700">
                     <div className="font-mono text-xs bg-gray-100 p-2 rounded mb-2">
                       ElasticNetCV
@@ -218,8 +218,8 @@ const ArchitectureDiagram = ({ onClose }) => {
                     </ul>
                   </div>
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-purple-200">
-                  <div className="font-semibold text-purple-800 mb-2">📈 Metrics</div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-2 border-yellow-200">
+                  <div className="font-semibold text-orange-800 mb-2">📈 Metrics</div>
                   <div className="text-sm text-gray-700">
                     <ul className="text-xs space-y-1">
                       <li>• R²: 0.821</li>
@@ -235,7 +235,7 @@ const ArchitectureDiagram = ({ onClose }) => {
 
             {/* Arrow Down */}
             <div className="flex justify-center mb-8">
-              <svg className="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v10.586l3.293-3.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 14.586V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
             </div>
@@ -278,7 +278,7 @@ const ArchitectureDiagram = ({ onClose }) => {
 
           {/* Tech Stack */}
           <div>
-            <h3 className="text-xl font-bold text-purple-800 mb-4">🛠️ Technology Stack</h3>
+            <h3 className="text-2xl font-bold text-orange-800 mb-4">🛠️ Technology Stack</h3>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-blue-800 mb-2">Data & ML</h4>
@@ -290,8 +290,8 @@ const ArchitectureDiagram = ({ onClose }) => {
                   <li>• pickle (model serialization)</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-purple-800 mb-2">Backend</h4>
+              <div className="bg-yellow-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-orange-800 mb-2">Backend</h4>
                 <ul className="text-sm space-y-1">
                   <li>• Flask (API server)</li>
                   <li>• Flask-CORS</li>
@@ -313,7 +313,7 @@ const ArchitectureDiagram = ({ onClose }) => {
 
           {/* File Structure */}
           <div>
-            <h3 className="text-xl font-bold text-purple-800 mb-4">📁 Project Structure</h3>
+            <h3 className="text-2xl font-bold text-orange-800 mb-4">📁 Project Structure</h3>
             <div className="bg-gray-50 p-6 rounded-lg font-mono text-xs overflow-x-auto">
               <pre className="text-gray-800">
 {`FootyLiveliness/
@@ -347,8 +347,8 @@ const ArchitectureDiagram = ({ onClose }) => {
 
           {/* Data Flow */}
           <div>
-            <h3 className="text-xl font-bold text-purple-800 mb-4">🔄 Data Flow</h3>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+            <h3 className="text-2xl font-bold text-orange-800 mb-4">🔄 Data Flow</h3>
+            <div className="bg-gradient-to-r from-blue-50 to-yellow-50 p-6 rounded-lg">
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-600 text-white px-3 py-1 rounded font-semibold min-w-[100px] text-center">Input</div>
@@ -363,7 +363,7 @@ const ArchitectureDiagram = ({ onClose }) => {
                   <div className="flex-1">Create 37-feature vector for each match from team stats</div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="bg-purple-600 text-white px-3 py-1 rounded font-semibold min-w-[100px] text-center">Prediction</div>
+                  <div className="bg-orange-600 text-white px-3 py-1 rounded font-semibold min-w-[100px] text-center">Prediction</div>
                   <div className="flex-1">Elastic Net predicts liveliness score (1-9 scale)</div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -382,7 +382,7 @@ const ArchitectureDiagram = ({ onClose }) => {
         <div className="mt-8 text-center sticky bottom-0 bg-white pt-4 border-t">
           <button 
             onClick={onClose}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
           >
             Close
           </button>

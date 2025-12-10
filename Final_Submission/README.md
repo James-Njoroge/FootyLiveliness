@@ -9,6 +9,38 @@
 
 ---
 
+## 📖 Complete Documentation
+
+**👉 For full project documentation, see [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)**
+
+This comprehensive guide includes:
+- Quick start instructions
+- Complete methodology
+- Model performance details
+- Web application features
+- Makefile commands
+- Technical stack
+- Troubleshooting guide
+
+---
+
+## ⚡ Quick Start
+
+```bash
+# Navigate to project root
+cd Final_Submission
+
+# Install and start everything
+make install && make start
+
+# Or run full demo with live data
+make demo
+```
+
+The app will open at **http://localhost:3000**
+
+---
+
 ## 📋 Project Overview
 
 An end-to-end machine learning system that predicts Premier League match "liveliness" (excitement level) using pre-match team statistics. The system helps football fans decide which matches to watch when multiple games are happening simultaneously.
@@ -18,6 +50,7 @@ An end-to-end machine learning system that predicts Premier League match "liveli
 - ✅ **90% Top-10 Hit Rate** - Correctly identifies 9 out of 10 most exciting matches
 - ✅ **0.896 Spearman ρ** - Excellent rank correlation
 - ✅ **0.452 MAE** - Low prediction error
+- ✅ **+833% Improvement** - From initial model (R² -0.15 → 0.821)
 - ✅ **Production-Ready Web App** - Real-time predictions with interactive UI
 
 ---

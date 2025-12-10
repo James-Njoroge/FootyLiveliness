@@ -25,7 +25,7 @@ ChartJS.register(
   ArcElement
 );
 
-const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
+const ProjectDetailsModal = ({ onClose }) => {
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') onClose();
@@ -196,34 +196,34 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
         <div className="space-y-10 text-gray-700 px-6 md:px-8">
           {/* Executive Summary */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4 flex items-center gap-2">
+            <h3 className="text-2xl font-bold text-orange-600 mb-4 flex items-center gap-2">
               <span>🎯</span> Executive Summary
             </h3>
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+            <div className="bg-gradient-to-r from-yellow-50 to-pink-50 p-6 rounded-lg">
               <p className="text-lg mb-4">
                 An end-to-end machine learning system that predicts Premier League match "liveliness" (excitement level) 
-                using pre-match team statistics. Achieved <strong className="text-purple-600">82% variance explained (R²)</strong> and 
-                <strong className="text-purple-600"> 90% accuracy</strong> in identifying the most exciting matches.
+                using pre-match team statistics. Achieved <strong className="text-orange-600">82% variance explained (R²)</strong> and 
+                <strong className="text-orange-600"> 90% accuracy</strong> in identifying the most exciting matches.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                 <div className="bg-white p-4 rounded-lg text-center shadow-sm">
-                  <div className="text-3xl font-bold text-purple-600">0.82</div>
+                  <div className="text-3xl font-bold text-orange-600">0.82</div>
                   <div className="text-xs text-gray-600 mt-1">R² Score</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg text-center shadow-sm">
-                  <div className="text-3xl font-bold text-purple-600">90%</div>
+                  <div className="text-3xl font-bold text-orange-600">90%</div>
                   <div className="text-xs text-gray-600 mt-1">Top-10 Hit</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg text-center shadow-sm">
-                  <div className="text-3xl font-bold text-purple-600">0.45</div>
+                  <div className="text-3xl font-bold text-orange-600">0.45</div>
                   <div className="text-xs text-gray-600 mt-1">MAE</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg text-center shadow-sm">
-                  <div className="text-3xl font-bold text-purple-600">37</div>
+                  <div className="text-3xl font-bold text-orange-600">37</div>
                   <div className="text-xs text-gray-600 mt-1">Features</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg text-center shadow-sm">
-                  <div className="text-3xl font-bold text-purple-600">380</div>
+                  <div className="text-3xl font-bold text-orange-600">380</div>
                   <div className="text-xs text-gray-600 mt-1">Matches</div>
                 </div>
               </div>
@@ -232,7 +232,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Variance Explained Visualization */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">📈 Model Explanatory Power</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">📈 Model Explanatory Power</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h4 className="font-semibold mb-4 text-center">Variance Explained</h4>
@@ -293,7 +293,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Performance Evolution Chart */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">📊 Performance Evolution (+833% Improvement)</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">📊 Performance Evolution (+833% Improvement)</h3>
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="h-80">
                 <Bar data={performanceData} options={chartOptions} />
@@ -321,14 +321,14 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Model Comparison Chart */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">🤖 Model Comparison</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🤖 Model Comparison</h3>
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="h-80">
                 <Bar data={modelComparisonData} options={chartOptions} />
               </div>
               <div className="mt-6 overflow-x-auto">
                 <table className="min-w-full text-sm">
-                  <thead className="bg-purple-100">
+                  <thead className="bg-yellow-100">
                     <tr>
                       <th className="px-4 py-3 text-left font-semibold">Model</th>
                       <th className="px-4 py-3 text-center font-semibold">Test R²</th>
@@ -387,7 +387,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Target Metrics Comparison Chart */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">🧪 Target Metric Experiments</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🧪 Target Metric Experiments</h3>
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-sm mb-4">
                 We tested <strong>7 different formulas</strong> for measuring match liveliness to validate that Simple xG is optimal:
@@ -426,7 +426,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Feature Importance Chart */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">🎯 Feature Importance (Top 15)</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🎯 Feature Importance (Top 15)</h3>
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="h-96">
                 <Bar data={featureImportanceData} options={horizontalChartOptions} />
@@ -467,7 +467,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Data Collection & Pipeline */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">📊 Data Collection & Pipeline</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">📊 Data Collection & Pipeline</h3>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">1️⃣ Data Source</h4>
@@ -487,7 +487,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
                   <li><strong>No leakage:</strong> Only pre-match data</li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
+              <div className="bg-yellow-50 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">3️⃣ Model Training</h4>
                 <ul className="text-sm space-y-1">
                   <li><strong>Train:</strong> 280 matches (rounds 0-27)</li>
@@ -501,7 +501,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Feature Categories */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">🛠️ Feature Engineering (37 Features)</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🛠️ Feature Engineering (37 Features)</h3>
             <div className="space-y-4">
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-lg">
                 <h4 className="font-semibold mb-3 text-lg">Rolling Features (22 features)</h4>
@@ -577,7 +577,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Key Learnings */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">💡 Key Learnings & Insights</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">💡 Key Learnings & Insights</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-green-50 p-5 rounded-lg">
                 <h4 className="font-semibold text-green-800 mb-3 text-lg">✅ What Works</h4>
@@ -642,8 +642,8 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Methodology & Rigor */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">🎓 Academic Rigor & Methodology</h3>
-            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg">
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🎓 Academic Rigor & Methodology</h3>
+            <div className="bg-gradient-to-r from-yellow-50 to-indigo-50 p-6 rounded-lg">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold mb-3">✅ Methodology Strengths</h4>
@@ -700,8 +700,8 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
 
           {/* Deployment & Production */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">🚀 Production Deployment</h3>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🚀 Production Deployment</h3>
+            <div className="bg-gradient-to-r from-blue-50 to-yellow-50 p-6 rounded-lg">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold mb-3">Configuration</h4>
@@ -718,23 +718,23 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
                   <h4 className="font-semibold mb-3">Performance Guarantees</h4>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-purple-600">📊</span>
+                      <span className="text-orange-600">📊</span>
                       <span><strong>82% variance explained</strong> - Industry-leading for sports prediction</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-purple-600">🎯</span>
+                      <span className="text-orange-600">🎯</span>
                       <span><strong>90% top-match accuracy</strong> - Reliable recommendations</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-purple-600">⚡</span>
+                      <span className="text-orange-600">⚡</span>
                       <span><strong>&lt;1ms inference time</strong> - Real-time predictions</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-purple-600">✓</span>
+                      <span className="text-orange-600">✓</span>
                       <span><strong>No overfitting</strong> - Generalizes to new matches</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-purple-600">🔄</span>
+                      <span className="text-orange-600">🔄</span>
                       <span><strong>Auto-refresh</strong> - Updates every 5 minutes</span>
                     </li>
                   </ul>
@@ -757,9 +757,468 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
             </div>
           </div>
 
+          {/* Project Journey */}
+          <div>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🗺️ Project Journey & Milestones</h3>
+            <div className="space-y-4">
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-5 rounded-lg border-l-4 border-yellow-500">
+                <h4 className="font-semibold text-orange-800 mb-3">Phase 1: Problem Definition & Data Collection (Weeks 1-3)</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Identified the "which match to watch" problem faced by football fans</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Scraped 380 matches from FotMob API (2024/25 Premier League season)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Collected 50+ raw statistics per match (xG, shots, possession, etc.)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Defined "liveliness" as a quantifiable metric for match excitement</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+                <h4 className="font-semibold text-blue-800 mb-3">Phase 2: Feature Engineering & Target Exploration (Weeks 4-6)</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Created 37 engineered features from raw statistics</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Implemented rolling 5-match averages to capture team form</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Tested 7 different target metrics for measuring excitement</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Discovered Simple xG (xG_total + min(xG_home, xG_away)) as optimal target</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+                <h4 className="font-semibold text-green-800 mb-3">Phase 3: Model Development & Optimization (Weeks 7-10)</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Tested 5 different algorithms (Linear, Ridge, Elastic Net, XGBoost, Neural Net)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Performed hyperparameter tuning with 5-fold cross-validation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Achieved +833% improvement from initial model (R² -0.15 → 0.821)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Selected Elastic Net for best balance of performance and interpretability</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+                <h4 className="font-semibold text-orange-800 mb-3">Phase 4: Web Application & Deployment (Weeks 11-14)</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Built full-stack application with React frontend and Flask backend</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Implemented real-time scraping for 380 matches with actual xG data</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Created Comparison View for predicted vs actual rankings</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span>Automated setup with Makefile for one-command deployment</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Technical Stack */}
+          <div>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🛠️ Technical Stack & Tools</h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-blue-800 mb-3">Data & ML</h4>
+                <ul className="space-y-1 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">📊</span>
+                    <span><strong>pandas</strong> - Data manipulation</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">🧮</span>
+                    <span><strong>numpy</strong> - Numerical computing</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">🤖</span>
+                    <span><strong>scikit-learn</strong> - ML models</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">📈</span>
+                    <span><strong>matplotlib</strong> - Visualization</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-600">🌐</span>
+                    <span><strong>requests</strong> - API scraping</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-green-800 mb-3">Backend</h4>
+                <ul className="space-y-1 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">🐍</span>
+                    <span><strong>Flask</strong> - REST API</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">🔄</span>
+                    <span><strong>Flask-CORS</strong> - Cross-origin</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">💾</span>
+                    <span><strong>pickle</strong> - Model serialization</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">📝</span>
+                    <span><strong>JSON</strong> - Data format</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-green-600">⚙️</span>
+                    <span><strong>Python 3.9+</strong> - Runtime</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-yellow-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-orange-800 mb-3">Frontend</h4>
+                <ul className="space-y-1 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">⚛️</span>
+                    <span><strong>React 18</strong> - UI framework</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">🎨</span>
+                    <span><strong>TailwindCSS</strong> - Styling</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">📊</span>
+                    <span><strong>Chart.js</strong> - Data viz</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">🔌</span>
+                    <span><strong>Axios</strong> - HTTP client</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-orange-600">📦</span>
+                    <span><strong>Node.js 14+</strong> - Runtime</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-yellow-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-yellow-800 mb-3">Development</h4>
+                <ul className="space-y-1 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-600">📓</span>
+                    <span><strong>Jupyter</strong> - Notebooks</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-600">🔧</span>
+                    <span><strong>VS Code</strong> - IDE</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-600">📦</span>
+                    <span><strong>Git</strong> - Version control</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-600">🎯</span>
+                    <span><strong>Makefile</strong> - Automation</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-yellow-600">🐛</span>
+                    <span><strong>Chrome DevTools</strong> - Debug</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-red-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-red-800 mb-3">Data Sources</h4>
+                <ul className="space-y-1 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-red-600">⚽</span>
+                    <span><strong>FotMob API</strong> - Match data</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-red-600">📊</span>
+                    <span><strong>xG Statistics</strong> - Shot quality</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-red-600">🏆</span>
+                    <span><strong>Premier League</strong> - 2024/25</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-red-600">📅</span>
+                    <span><strong>380 Matches</strong> - Full season</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-red-600">🔄</span>
+                    <span><strong>Real-time</strong> - Live scraping</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-indigo-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-indigo-800 mb-3">Deployment</h4>
+                <ul className="space-y-1 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-600">🖥️</span>
+                    <span><strong>localhost</strong> - Development</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-600">🔌</span>
+                    <span><strong>Port 5001</strong> - Flask API</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-600">🌐</span>
+                    <span><strong>Port 3000</strong> - React app</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-600">⚡</span>
+                    <span><strong>&lt;1ms</strong> - Inference time</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-indigo-600">🔄</span>
+                    <span><strong>make update</strong> - Refresh data</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Web Application Features */}
+          <div>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🌐 Web Application Features</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-gradient-to-br from-yellow-50 to-pink-50 p-5 rounded-lg border border-yellow-200">
+                <h4 className="font-semibold text-orange-800 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">🎯</span>
+                  Core Functionality
+                </h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Match Ranking:</strong> All 380 matches sorted by predicted excitement (0-8 scale)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Week Navigation:</strong> Browse past and future weeks with ← Previous / Next → buttons</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Real-time Data:</strong> Scrapes actual xG from 150+ finished matches</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Team Logos:</strong> Visual identification with official Premier League logos</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Match Details:</strong> Date, time, teams, scores, and liveliness metrics</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-lg border border-green-200">
+                <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">⚖️</span>
+                  Comparison View
+                </h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span><strong>Side-by-Side:</strong> Predicted ranking (left) vs Actual ranking (right)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span><strong>Accuracy Badges:</strong> Color-coded (green 90%+, blue 75%+, yellow 60%+, red &lt;60%)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span><strong>Summary Stats:</strong> Matches analyzed, average accuracy, good predictions count</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span><strong>Visual Bars:</strong> Purple for predicted, green for actual liveliness</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span><strong>Toggle View:</strong> Switch between Normal and Comparison modes</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-lg border border-blue-200">
+                <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">📊</span>
+                  Analytics & Insights
+                </h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span><strong>Model Performance:</strong> R² = 0.821, MAE = 0.452, 90% top-10 hit rate</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span><strong>Performance Charts:</strong> Evolution, model comparison, target metrics</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span><strong>Feature Importance:</strong> Top 15 features ranked by impact</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span><strong>Variance Explained:</strong> Doughnut chart showing 82% vs 18% unexplained</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span><strong>Architecture Diagram:</strong> Visual system design overview</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-5 rounded-lg border border-orange-200">
+                <h4 className="font-semibold text-orange-800 mb-3 flex items-center gap-2">
+                  <span className="text-2xl">🚀</span>
+                  User Experience
+                </h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>One-Command Setup:</strong> <code className="bg-white px-1 rounded text-xs">make install && make start</code></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Getting Started Modal:</strong> Step-by-step setup instructions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>About Modal:</strong> Comprehensive project explanation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Project Details:</strong> Full technical documentation with charts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600">•</span>
+                    <span><strong>Responsive Design:</strong> Works on desktop, tablet, and mobile</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Data Pipeline */}
+          <div>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">🔄 Data Pipeline & Workflow</h3>
+            <div className="space-y-4">
+              <div className="bg-white p-5 rounded-lg border-2 border-yellow-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">1</div>
+                  <h4 className="font-semibold text-lg">Data Collection (scrape_all_season_fixtures.py)</h4>
+                </div>
+                <div className="ml-13 space-y-2 text-sm">
+                  <p><strong>Input:</strong> FotMob API (https://www.fotmob.com/api/)</p>
+                  <p><strong>Process:</strong> Fetches 380 Premier League matches with fixtures and statistics</p>
+                  <p><strong>For Finished Matches:</strong> Extracts actual xG from shot-by-shot events (shotmap.shots[])</p>
+                  <p><strong>For Upcoming Matches:</strong> Stores fixture info (teams, date, time)</p>
+                  <p><strong>Output:</strong> <code className="bg-gray-100 px-2 py-1 rounded">all_fixtures.json</code> (150 finished + 230 upcoming)</p>
+                  <p className="text-gray-600 italic">⏱️ Takes ~5 minutes | Rate limited to 0.5s between requests</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-lg border-2 border-blue-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">2</div>
+                  <h4 className="font-semibold text-lg">Feature Engineering (app.py - create_features_for_match)</h4>
+                </div>
+                <div className="ml-13 space-y-2 text-sm">
+                  <p><strong>Input:</strong> Team names (home, away) + <code className="bg-gray-100 px-2 py-1 rounded">team_stats.pkl</code></p>
+                  <p><strong>Process:</strong> Creates 27-feature vector for each match</p>
+                  <p><strong>Features Include:</strong> Home/away xG, shots, chances, corners, defensive stats, rest days, league averages</p>
+                  <p><strong>Defaults:</strong> League averages used if team stats not found</p>
+                  <p><strong>Output:</strong> 27-dimensional feature vector (numpy array)</p>
+                  <p className="text-gray-600 italic">⚡ Instant | Pre-computed team stats from 2024/25 season</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-lg border-2 border-green-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">3</div>
+                  <h4 className="font-semibold text-lg">Feature Scaling (StandardScaler)</h4>
+                </div>
+                <div className="ml-13 space-y-2 text-sm">
+                  <p><strong>Input:</strong> Raw feature vector + <code className="bg-gray-100 px-2 py-1 rounded">scaler.pkl</code></p>
+                  <p><strong>Process:</strong> Z-score normalization (mean=0, std=1)</p>
+                  <p><strong>Formula:</strong> <code className="bg-gray-100 px-2 py-1 rounded">X_scaled = (X - mean) / std</code></p>
+                  <p><strong>Purpose:</strong> Ensures features with larger ranges don't dominate the model</p>
+                  <p><strong>Output:</strong> Scaled 27-dimensional feature vector</p>
+                  <p className="text-gray-600 italic">⚡ &lt;1ms | Pre-fitted scaler from training data</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-lg border-2 border-orange-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">4</div>
+                  <h4 className="font-semibold text-lg">Prediction (Elastic Net Model)</h4>
+                </div>
+                <div className="ml-13 space-y-2 text-sm">
+                  <p><strong>Input:</strong> Scaled features + <code className="bg-gray-100 px-2 py-1 rounded">model.pkl</code></p>
+                  <p><strong>Model:</strong> ElasticNet(alpha=21.54, l1_ratio=0.5)</p>
+                  <p><strong>Process:</strong> Linear combination of features with L1+L2 regularization</p>
+                  <p><strong>Formula:</strong> <code className="bg-gray-100 px-2 py-1 rounded">y = w₁x₁ + w₂x₂ + ... + w₂₇x₂₇ + b</code></p>
+                  <p><strong>Output:</strong> Predicted liveliness score (0-8 scale, typically 2-7)</p>
+                  <p className="text-gray-600 italic">⚡ &lt;1ms | Pre-trained on 280 matches with 5-fold CV</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-lg border-2 border-red-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">5</div>
+                  <h4 className="font-semibold text-lg">Ranking & Display (Flask API + React)</h4>
+                </div>
+                <div className="ml-13 space-y-2 text-sm">
+                  <p><strong>Input:</strong> Predictions for all 380 matches</p>
+                  <p><strong>Process:</strong> Sort by predicted_liveliness (descending) and assign global ranks</p>
+                  <p><strong>API Response:</strong> JSON with match data, predictions, ranks, status, actual xG</p>
+                  <p><strong>Frontend:</strong> React displays matches with team logos, scores, accuracy badges</p>
+                  <p><strong>Output:</strong> Interactive web UI at http://localhost:3000</p>
+                  <p className="text-gray-600 italic">🌐 Real-time | Updates on page load or data refresh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Team & Course Info */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-4">👥 Team & Course Information</h3>
+            <h3 className="text-2xl font-bold text-orange-600 mb-4">👥 Team & Course Information</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-blue-50 p-5 rounded-lg">
                 <h4 className="font-semibold mb-3">Team Members</h4>
@@ -778,7 +1237,7 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
                   </li>
                 </ul>
               </div>
-              <div className="bg-purple-50 p-5 rounded-lg">
+              <div className="bg-yellow-50 p-5 rounded-lg">
                 <h4 className="font-semibold mb-3">Course Details</h4>
                 <ul className="space-y-2 text-sm">
                   <li><strong>Course:</strong> CS 506 - Data Science</li>
@@ -792,8 +1251,8 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
           </div>
 
           {/* Achievements */}
-          <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 p-6 rounded-lg">
-            <h3 className="text-2xl font-bold text-purple-800 mb-4">🏆 Key Achievements</h3>
+          <div className="bg-gradient-to-r from-yellow-100 via-pink-100 to-yellow-100 p-6 rounded-lg">
+            <h3 className="text-2xl font-bold text-orange-800 mb-4">🏆 Key Achievements</h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
@@ -851,23 +1310,12 @@ const ProjectDetailsModal = ({ onClose, onShowArchitecture }) => {
         </div>
 
         <div className="mt-8 text-center sticky bottom-0 bg-white pt-4 border-t px-6 md:px-8 pb-6 md:pb-8">
-          <div className="flex gap-3 justify-center">
-            <button 
-              onClick={onShowArchitecture}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg flex items-center gap-2"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-              </svg>
-              View Architecture Diagram
-            </button>
-            <button 
-              onClick={onClose}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
-            >
-              Close
-            </button>
-          </div>
+          <button 
+            onClick={onClose}
+            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

@@ -93,12 +93,12 @@ const MatchCard = ({ match, index }) => {
             <div className="flex-1">
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div 
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500"
+                  className="bg-gradient-to-r from-yellow-500 to-pink-500 h-2 rounded-full transition-all duration-500"
                   style={{ width: `${livelinessPercent}%` }}
                 />
               </div>
             </div>
-            <div className="text-sm font-bold text-purple-600 min-w-[50px] text-right">
+            <div className="text-sm font-bold text-orange-600 min-w-[50px] text-right">
               {livelinessScore.toFixed(2)}
             </div>
           </div>
