@@ -146,13 +146,10 @@ FootyLiveliness/
 │   │       └── README.md              # Web app documentation
 │   │
 │   ├── Makefile                       # Final submission automation
-│   ├── PROJECT_DOCUMENTATION.md       # This file
-│   └── README.md                      # Final submission README
 │
 ├── Misc/                              # Experimental and development files
 ├── data/                              # Raw and processed data
 ├── Makefile                           # Root-level automation (CI/CD)
-├── PROJECT_SUMMARY.md                 # Overall project summary
 └── README.md                          # Main repository README
 ```
 
@@ -181,7 +178,7 @@ FootyLiveliness/
 
 #### Target Metrics Comparison
 
-![Target Metrics Comparison](3_Model_Training/target_metric_experiments/target_metrics_comparison.png)
+![Target Metrics Comparison](Final_Submission/3_Model_Training/target_metric_experiments/target_metrics_comparison.png)
 
 **What this shows:**
 - **Top Left (Test R²):** Simple xG achieves the highest R² score (0.812), significantly outperforming all other target metrics. This means it explains 81.2% of the variance in match excitement.
@@ -223,7 +220,7 @@ FootyLiveliness/
 
 #### Model Comparison for Simple xG Target
 
-![Model Comparison](3_Model_Training/target_metric_experiments/best_target_models_comparison.png)
+![Model Comparison](Final_Submission/3_Model_Training/target_metric_experiments/best_target_models_comparison.png)
 
 **What this shows:**
 - **Top Left (Test R²):** ElasticNet achieves the highest test R² (0.821), outperforming Ridge (0.812) and GradientBoosting (0.747). Higher is better.
@@ -235,7 +232,7 @@ FootyLiveliness/
 
 #### Single-Season vs Multi-Season Training
 
-![All Seasons Comparison](3_Model_Training/target_metric_experiments/all_seasons_comparison.png)
+![All Seasons Comparison](Final_Submission/3_Model_Training/target_metric_experiments/all_seasons_comparison.png)
 
 **What this shows:**
 - **Left (Test R²):** Single-season training (green, 0.821) dramatically outperforms multi-season approaches (blue, ~0.1). This is because football dynamics change between seasons (transfers, tactics, rule changes).
