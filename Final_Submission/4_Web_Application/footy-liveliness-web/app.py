@@ -116,6 +116,24 @@ def create_features_for_match(home_team, away_team):
     
     return np.array([features[f] for f in feature_names]).reshape(1, -1)
 
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint - API info"""
+    return jsonify({
+        "name": "Footy Liveliness API",
+        "version": "1.0.0",
+        "description": "AI-powered Premier League match excitement predictions",
+        "endpoints": {
+            "health": "/api/health",
+            "upcoming_fixtures": "/api/upcoming",
+            "predict_match": "/api/predict (POST)",
+            "model_stats": "/api/stats",
+            "refresh_fixtures": "/api/refresh-fixtures (POST)"
+        },
+        "frontend": "https://footy-liveliness.vercel.app",
+        "docs": "https://github.com/James-Njoroge/FootyLiveliness"
+    })
+
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint"""
@@ -235,4 +253,6 @@ if __name__ == '__main__':
     print("\nStarting server on http://localhost:5001")
     print("="*80 + "\n")
     
-    app.run(debug=True, port=5001, host='127.0.0.1')
+    # Use PORT from environment variable (for Render) or default to 5001
+    port = int(os.environ.get('PORT', 5001))
+    app.run(debug=False, port=port, host='0.0.0.0')
