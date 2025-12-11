@@ -226,7 +226,7 @@ const AboutModal = ({ onClose }) => {
               </div>
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-orange-800 mb-2">📊 For Analysts</h4>
-                <ul className="text-sm space-y-1 text-purple-900">
+                <ul className="text-sm space-y-1 text-lime-900">
                   <li>✓ Quantify match entertainment value</li>
                   <li>✓ Identify factors driving excitement</li>
                   <li>✓ Compare predicted vs actual outcomes</li>

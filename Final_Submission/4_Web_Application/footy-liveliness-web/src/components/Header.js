@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({ onAboutClick, onProjectDetailsClick, onGettingStartedClick, onArchitectureClick }) => {
   return (
-    <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+    <div className="bg-gradient-to-r from-lime-600 to-lime-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Buttons Row */}
         <div className="flex justify-end gap-2 mb-8 flex-wrap">
@@ -47,8 +47,8 @@ const Header = ({ onAboutClick, onProjectDetailsClick, onGettingStartedClick, on
         {/* Title Section */}
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-4">⚽ Footy Liveliness</h1>
-          <p className="text-xl text-purple-100 mb-2">AI-Powered Premier League Match Rankings</p>
-          <p className="text-sm text-purple-200">Predicting the most exciting matches to watch</p>
+          <p className="text-xl text-lime-100 mb-2">AI-Powered Premier League Match Rankings</p>
+          <p className="text-sm text-lime-200">Predicting the most exciting matches to watch</p>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ const GettingStartedModal = ({ onClose }) => {
             <div className="bg-gradient-to-r from-yellow-50 to-blue-50 p-6 rounded-lg">
               <p className="mb-4 font-semibold">🎯 First time running? Just 2 simple steps:</p>
               <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg shadow-sm border-2 border-purple-300">
+                <div className="bg-white p-4 rounded-lg shadow-sm border-2 border-lime-300">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
                     <h4 className="font-semibold text-lg">Open Terminal in Final_Submission Folder</h4>

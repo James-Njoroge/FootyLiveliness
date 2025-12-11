@@ -13,9 +13,9 @@ const Footer = () => {
             with 37 pre-match features including team form, attacking strength, and defensive stats.
           </p>
           <div className="flex justify-center space-x-8 text-sm text-gray-500">
-            <div>Model: <span className="text-purple-400">Elastic Net</span></div>
-            <div>R²: <span className="text-purple-400">0.82</span></div>
-            <div>MAE: <span className="text-purple-400">0.45</span></div>
+            <div>Model: <span className="text-lime-400">Elastic Net</span></div>
+            <div>R²: <span className="text-lime-400">0.82</span></div>
+            <div>MAE: <span className="text-lime-400">0.45</span></div>
           </div>
         </div>
 
@@ -24,23 +24,23 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-center mb-6">Contributors</h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-purple-400 font-semibold">James Njoroge</div>
+              <div className="text-lime-400 font-semibold">James Njoroge</div>
               <a 
                 href="https://jnjoroge.dev/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-300 text-xs transition-colors"
+                className="text-gray-400 hover:text-lime-300 text-xs transition-colors"
               >
                 (jnjoroge.dev)
               </a>
               <p className="text-gray-500 text-sm mt-1">Data Collection & Feature Engineering</p>
             </div>
             <div className="text-center">
-              <div className="text-purple-400 font-semibold">Muhammad Raka Zuhdi</div>
+              <div className="text-lime-400 font-semibold">Muhammad Raka Zuhdi</div>
               <p className="text-gray-500 text-sm mt-1">Model Training & Web Development</p>
             </div>
             <div className="text-center">
-              <div className="text-purple-400 font-semibold">Fola Oladipo</div>
+              <div className="text-lime-400 font-semibold">Fola Oladipo</div>
               <p className="text-gray-500 text-sm mt-1">Model Evaluation & Documentation</p>
             </div>
           </div>
@@ -61,7 +61,7 @@ const Footer = () => {
               href="https://gallettilance.github.io/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-purple-400 hover:text-purple-300 transition-colors"
+              className="text-lime-400 hover:text-lime-300 transition-colors"
             >
               Lance Galletti
             </a>

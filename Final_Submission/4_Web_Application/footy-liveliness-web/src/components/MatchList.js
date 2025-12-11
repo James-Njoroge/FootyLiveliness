@@ -86,7 +86,7 @@ const MatchList = ({ matches }) => {
               disabled={!hasPreviousWeek()}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                 hasPreviousWeek()
-                  ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-md hover:shadow-lg'
+                  ? 'bg-lime-600 hover:bg-lime-700 text-white shadow-md hover:shadow-lg'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
               title="Previous week"
@@ -111,7 +111,7 @@ const MatchList = ({ matches }) => {
               disabled={!hasNextWeek()}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                 hasNextWeek()
-                  ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-md hover:shadow-lg'
+                  ? 'bg-lime-600 hover:bg-lime-700 text-white shadow-md hover:shadow-lg'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
               title="Next week"
@@ -137,7 +137,7 @@ const MatchList = ({ matches }) => {
                   onClick={() => setViewMode('normal')}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                     viewMode === 'normal'
-                      ? 'bg-white text-purple-600 shadow-sm'
+                      ? 'bg-white text-lime-600 shadow-sm'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
