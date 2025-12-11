@@ -2,10 +2,30 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "framework": "create-react-app",
+  "git": {
+    "deploymentEnabled": {
+      "raka-ridge": true
+    }
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": true
+  },
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
     }
   ]
 }
