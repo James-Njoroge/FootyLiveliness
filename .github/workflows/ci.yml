@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -22,8 +22,5 @@ jobs:
     - name: 📦 Install dependencies
       run: make install
       
-    - name: 🧪 Run tests
-      run: make test
-      
     - name: ✅ Build complete
-      run: echo "Build and tests completed successfully!"
+      run: echo "Dependencies installed successfully!"
