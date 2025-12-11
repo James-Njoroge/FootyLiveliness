@@ -25,7 +25,12 @@ yarn-error.log*
 # Python
 *.pyc
 __pycache__/
-*.pkl
 *.log
 venv/
 env/
+
+# Keep model files for deployment
+!model.pkl
+!scaler.pkl
+!feature_names.pkl
+!team_stats.pkl
