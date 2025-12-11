@@ -1,4 +1,4 @@
-# Footy Liveliness - Complete Project Documentation
+# [Footy Liveliness](https://footyliveliness.com)
 
 **CS 506 - Data Science | Boston University | Fall 2025**
 
