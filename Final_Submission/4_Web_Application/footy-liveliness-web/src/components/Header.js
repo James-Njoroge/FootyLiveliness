@@ -46,16 +46,7 @@ const Header = ({ onAboutClick, onProjectDetailsClick, onGettingStartedClick, on
 
         {/* Title Section */}
         <div className="text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="12" cy="12" r="10" fill="white" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M12 2 L12 6 M12 18 L12 22 M2 12 L6 12 M18 12 L22 12" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M12 6 L8 10 L4 8 M12 6 L16 10 L20 8" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-              <path d="M8 10 L10 14 L12 18 M16 10 L14 14 L12 18" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-              <path d="M4 8 L6 12 L10 14 M20 8 L18 12 L14 14" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-            </svg>
-            <h1 className="text-5xl font-bold">Footy Liveliness</h1>
-          </div>
+          <h1 className="text-5xl font-bold mb-4">⚽ Footy Liveliness</h1>
           <p className="text-xl text-purple-100 mb-2">AI-Powered Premier League Match Rankings</p>
           <p className="text-sm text-purple-200">Predicting the most exciting matches to watch</p>
         </div>
