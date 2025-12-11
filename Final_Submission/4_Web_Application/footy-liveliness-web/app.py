@@ -116,6 +116,24 @@ def create_features_for_match(home_team, away_team):
     
     return np.array([features[f] for f in feature_names]).reshape(1, -1)
 
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint - API info"""
+    return jsonify({
+        "name": "Footy Liveliness API",
+        "version": "1.0.0",
+        "description": "AI-powered Premier League match excitement predictions",
+        "endpoints": {
+            "health": "/api/health",
+            "upcoming_fixtures": "/api/upcoming",
+            "predict_match": "/api/predict (POST)",
+            "model_stats": "/api/stats",
+            "refresh_fixtures": "/api/refresh-fixtures (POST)"
+        },
+        "frontend": "https://footy-liveliness.vercel.app",
+        "docs": "https://github.com/James-Njoroge/FootyLiveliness"
+    })
+
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint"""
