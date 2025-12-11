@@ -169,14 +169,65 @@ Final_Submission/
 
 ### Phase 4: Model Selection (Weeks 11-14)
 
-**Models Tested:**
-| Model | Test R² | MAE | Top-10 Hit | Overfitting | Verdict |
-|-------|---------|-----|------------|-------------|---------|
-| **Elastic Net** | **0.821** | 0.452 | 90% | -0.014 | ✅ Winner |
-| Ridge | 0.812 | 0.470 | 90% | -0.002 | Close second |
-| Gradient Boosting | 0.747 | 0.542 | 90% | 0.168 | Moderate overfitting |
-| XGBoost | 0.042 | 1.150 | ~40% | - | Too complex |
-| Neural Network | Negative | - | - | Severe | Failed |
+# 🔬 Experiments & Model Selection
+
+## What We Tested
+
+In developing our final model (R²=0.821), we conducted extensive experiments across multiple dimensions:
+
+### Data Configurations
+- ✅ **Single-season (280 matches)** → R² = 0.821 (SELECTED)
+- ❌ Multi-season (990 matches) → R² = -0.023 (failed - cross-season inconsistency)
+
+### Feature Engineering
+- ✅ **37 base features** → R² = 0.821 (optimal)
+- ❌ 58 features with interactions → R² = 0.002 (overfitting)
+- ❌ 87 features → R² < 0 (severe overfitting)
+
+### Model Architectures
+| Model | Test R² | Result |
+|-------|---------|--------|
+| **Elastic Net** | **0.821** | ✅ **Selected** |
+| Ridge | 0.812 | ✅ Close second |
+| Gradient Boosting | 0.747 | ⚠️ Overfits |
+| XGBoost | 0.042 | ❌ Too complex |
+| Random Forest | -0.053 | ❌ Failed |
+| Neural Network | < 0 | ❌ Insufficient data |
+
+### Target Metrics (7 tested)
+| Metric | Formula | R² |
+|--------|---------|-----|
+| **Simple xG** | `xG_total + xG_min` | **0.812** ✅ |
+| Comprehensive | Weighted all stats | 0.724 |
+| Chances-Focused | Shots + opportunities | 0.702 |
+| Shot Quality | xG + shots + SoT | 0.647 |
+
+## Key Learnings
+
+**What Worked:**
+- ✅ Simple xG target outperformed complex formulas
+- ✅ Single-season data better than multi-season
+- ✅ Linear models optimal for small datasets (280 samples)
+- ✅ Strong regularization prevents overfitting
+
+**What Didn't Work:**
+- ❌ Multi-season training degraded performance by 126%
+- ❌ Neural networks failed (need 500+ samples)
+- ❌ Too many features (58+) caused overfitting
+- ❌ Complex target metrics harder to predict
+
+## Final Configuration
+
+```python
+Model: ElasticNet(alpha=21.54, l1_ratio=0.5)
+Target: xG_total + min(xG_home, xG_away)
+Features: 37 (rolling averages + league context + form)
+Data: 2024/25 season only
+Result: R² = 0.821, Top-10 Hit = 90%
+```
+
+**Total Experiments:** 30+ configurations tested  
+**Final Improvement:** +833% over initial baseline (R² 0.088 → 0.821)
 
 **Final Model Configuration:**
 - **Algorithm:** ElasticNetCV
