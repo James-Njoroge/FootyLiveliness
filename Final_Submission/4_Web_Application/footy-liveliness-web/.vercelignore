@@ -1,0 +1,35 @@
+# Python files (backend only)
+*.py
+*.pkl
+*.pyc
+__pycache__/
+venv/
+env/
+requirements.txt
+runtime.txt
+.python-version
+Procfile
+render.yaml
+
+# Backend files
+app.py
+train_and_save_model.py
+scrape_*.py
+check_team_stats.py
+test_xg_extraction.py
+
+# Data files
+*.json
+!package.json
+!package-lock.json
+
+# Logs
+*.log
+*.pid
+
+# Documentation
+*.md
+!README.md
+
+# Shell scripts
+*.sh
