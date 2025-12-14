@@ -2255,9 +2255,14 @@
     "away": "Everton",
     "date": "2025-12-13",
     "time": "15:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 2.2,
+      "away": 1.04,
+      "total": 3.24,
+      "simple_xg": 4.28
+    }
   },
   {
     "matchId": "4813530",
@@ -2265,9 +2270,14 @@
     "away": "Brighton & Hove Albion",
     "date": "2025-12-13",
     "time": "15:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 1.89,
+      "away": 1.9,
+      "total": 3.79,
+      "simple_xg": 5.67
+    }
   },
   {
     "matchId": "4813527",
@@ -2275,9 +2285,14 @@
     "away": "Fulham",
     "date": "2025-12-13",
     "time": "17:30",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 2.48,
+      "away": 1.96,
+      "total": 4.45,
+      "simple_xg": 6.41
+    }
   },
   {
     "matchId": "4813525",
@@ -2285,9 +2300,14 @@
     "away": "Wolverhampton Wanderers",
     "date": "2025-12-13",
     "time": "20:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 1.13,
+      "away": 0.31,
+      "total": 1.44,
+      "simple_xg": 1.76
+    }
   },
   {
     "matchId": "4813529",
@@ -2295,9 +2315,14 @@
     "away": "Manchester City",
     "date": "2025-12-14",
     "time": "14:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 2.08,
+      "away": 1.19,
+      "total": 3.27,
+      "simple_xg": 4.46
+    }
   },
   {
     "matchId": "4813532",
@@ -2305,9 +2330,14 @@
     "away": "Tottenham Hotspur",
     "date": "2025-12-14",
     "time": "14:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 1.92,
+      "away": 0.37,
+      "total": 2.29,
+      "simple_xg": 2.66
+    }
   },
   {
     "matchId": "4813533",
@@ -2315,9 +2345,14 @@
     "away": "Newcastle United",
     "date": "2025-12-14",
     "time": "14:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 0.29,
+      "away": 0.25,
+      "total": 0.54,
+      "simple_xg": 0.79
+    }
   },
   {
     "matchId": "4813534",
@@ -2325,9 +2360,14 @@
     "away": "Aston Villa",
     "date": "2025-12-14",
     "time": "14:00",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 1.04,
+      "away": 0.62,
+      "total": 1.65,
+      "simple_xg": 2.27
+    }
   },
   {
     "matchId": "4813526",
@@ -2335,9 +2375,14 @@
     "away": "Leeds United",
     "date": "2025-12-14",
     "time": "16:30",
-    "status": "upcoming",
+    "status": "finished",
     "actualScore": null,
-    "actualXG": null
+    "actualXG": {
+      "home": 0.71,
+      "away": 1.39,
+      "total": 2.1,
+      "simple_xg": 2.81
+    }
   },
   {
     "matchId": "4813531",
